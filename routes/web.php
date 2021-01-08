@@ -26,3 +26,5 @@ Route::get('/timeline', [App\Http\Controllers\TimelineController::class, 'index'
 
 Route::get('/timeline/post/create', [App\Http\Controllers\TimelineController::class, 'showCreateForm'])->name('create');
 Route::post('/timeline/post/create', [App\Http\Controllers\TimelineController::class, 'create']);
+
+Route::get('/timeline/post/{post_id}', [App\Http\Controllers\TimelineController::class, 'show'])->name('show');
