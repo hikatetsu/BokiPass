@@ -20,3 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/timeline', [App\Http\Controllers\TimelineController::class, 'index'])->name('timeline');
+
+Route::get('/timeline/post/create', [App\Http\Controllers\TimelineController::class, 'showCreateForm'])->name('create');
+Route::post('/timeline/post/create', [App\Http\Controllers\TimelineController::class, 'create']);
