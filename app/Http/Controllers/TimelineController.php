@@ -56,8 +56,13 @@ class TimelineController extends Controller
         return redirect()->route('timeline');
     }
 
-    public function show(int $post_id)
+    public function showDetails(int $post_id)
     {
-        return view('timeline.show');
+        //選ばれた合格体験談を取得する
+        $post = Post::find($post_id);
+
+        return view('timeline.show',[
+            'post' => $post,
+        ]);
     }
 }

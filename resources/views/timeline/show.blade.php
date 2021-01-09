@@ -2,7 +2,24 @@
 <button>編集</button>
 <button>削除</button>
 
-<p>コメント</p>
+<h2>{{$post->user_name}}さんの合格体験談({{$post->pass_date}})</h2>
+<h2>日商簿記検定{{$post->pass_class}}級合格</h2>
+<p style="font-weight:  bold;">受験方式</p>
+<p>{{$post->test_style}}</p>
+<p style="font-weight:  bold;">勉強期間（時間）</p>
+<p>{{$post->study_period}}</p>
+<p style="font-weight:  bold;">勉強法</p>
+<p>{{$post->study_method}}</p>
+<p style="font-weight:  bold;">使用した教材</p>
+<p>{{$post->books_used}}</p>
+<p style="font-weight:  bold;">合格した秘訣や受験生へのアドバイス</p>
+<p>{{$post->advice}}</p>
+<p style="font-weight:  bold;">その他</p>
+<p>{{$post->free_column}}</p>
+<p style="font-weight:  bold;">投稿日時</p>
+<p>{{$post->created_at}}</p>
+
+<p style="font-weight:  bold;">コメント</p>
 <input type="text">
 <button>コメントする</button>
 <br>
