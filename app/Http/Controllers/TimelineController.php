@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\CreateFolder; 
 
 class TimelineController extends Controller
 {
@@ -21,20 +22,8 @@ class TimelineController extends Controller
         return view('timeline.create');
     }
 
-    public function create(Request $request)
+    public function create(CreateFolder $request)
     {
-        //バリデーション実行
-        $request->validate([
-            'pass_class' => 'required|max:20',
-            'pass_date' => 'required|max:20',
-            'test_style' => 'required|max:20',
-            'study_period' => 'required|max:191',
-            'study_method' => 'required|max:191',
-            'books_used' => 'required|max:191',
-            'advice' => 'required|max:191',
-            'free_column' => 'max:191',
-        ]);
-
         //Postインスタンス作成
         $post = new Post;
 

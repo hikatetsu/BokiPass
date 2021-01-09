@@ -2,8 +2,10 @@
 <button>編集</button>
 <button>削除</button>
 
-<h2>{{$post->user_name}}さんの合格体験談({{$post->pass_date}})</h2>
+<h2>{{$post->user_name}}さんの合格体験談</h2>
 <h2>日商簿記検定{{$post->pass_class}}級合格</h2>
+<p style="font-weight:  bold;">合格年月</p>
+<p>{{$post->pass_date}}</p>
 <p style="font-weight:  bold;">受験方式</p>
 <p>{{$post->test_style}}</p>
 <p style="font-weight:  bold;">勉強期間（時間）</p>

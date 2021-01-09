@@ -1,4 +1,15 @@
 <h1>投稿ページ</h1>
+
+@if($errors->any())
+  <div>
+    <ul>
+      @foreach($errors->all() as $message)
+        <li style="color:red;">{{ $message }}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
 <form action="{{route('create')}}" method="post">
 @csrf
 
@@ -19,7 +30,6 @@
   <label for="test_style">どの試験方式でしたか？</label><br>
   <input type="radio" name="test_style" id="test_style" value="筆記試験（統一試験方式）" {{old('test_style') == "筆記試験（統一試験方式）" ? 'checked' : ''}} checked>筆記試験（統一試験方式）
   <input type="radio" name="test_style" id="test_style" value="ネット試験（CBT方式）" {{old('test_style') == "ネット試験（CBT方式）" ? 'checked' : ''}} >ネット試験（CBT方式）
-  <input type="radio" name="test_style" id="test_style" value="その他" {{old('test_style') == "その他" ? 'checked' : ''}} >その他
 </div>
 
 <div>
@@ -43,12 +53,12 @@
 </div>
 
 <div>
-  <label for="free_column">自由欄〈任意〉</label><br>
+  <label for="free_column">最後に一言お願いします。</label><br>
   <textarea name="free_column" id="free_column" cols="50" rows="5" placeholder="合格された今の気持ちや、友達作りにSNSの紹介などご自由にどうぞ。">{{old('free_column')}}</textarea>
 </div>
 
+<p>ご協力ありがとうございました。</p>
 <button tipe="submit">送信</button>
-
 </form>
 
 <a href="{{route('timeline')}}">キャンセル</a>
