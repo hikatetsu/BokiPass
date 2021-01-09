@@ -17,9 +17,9 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('user_name',191);
-            $table->integer('pass_class');
+            $table->string('pass_class',20);
             $table->date('pass_date');
-            $table->integer('test_style');
+            $table->string('test_style',20);
             $table->string('study_period',191);
             $table->string('study_method',191);
             $table->string('books_used',191);
