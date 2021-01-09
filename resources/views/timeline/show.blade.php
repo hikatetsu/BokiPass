@@ -16,7 +16,7 @@
 <p>{{$post->books_used}}</p>
 <p style="font-weight:  bold;">合格した秘訣や受験生へのアドバイス</p>
 <p>{{$post->advice}}</p>
-<p style="font-weight:  bold;">その他</p>
+<p style="font-weight:  bold;">最後に一言</p>
 <p>{{$post->free_column}}</p>
 <p style="font-weight:  bold;">投稿日時</p>
 <p>{{$post->created_at}}</p>
