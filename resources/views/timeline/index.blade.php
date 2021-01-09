@@ -4,7 +4,7 @@
 <br>
 
 @foreach($posts as $post)
-<div style="border:1px solid black; display:inline-block;">
+<div style="border:1px solid black; display:inline-block; width:300px;">
 <p>日商簿記{{$post->pass_class}}級合格</p>
 <p>user_id:{{$post->user_id}}　{{$post->user_name}}さん</p>
 <p>{{$post->advice}}</p>

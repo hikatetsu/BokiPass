@@ -19,7 +19,7 @@ class PostsTableSeeder extends Seeder
             'user_id' => 1,
             'user_name' => '炭治郎',
             'pass_class' => 1,
-            'pass_date' => Carbon::now(),
+            'pass_date' => '2021-01',
             'test_style' => 1,
             'study_period' => '約１年',
             'study_method' => '専門学校に通って学びました。',
