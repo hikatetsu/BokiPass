@@ -28,3 +28,6 @@ Route::get('/timeline/post/create', [App\Http\Controllers\TimelineController::cl
 Route::post('/timeline/post/create', [App\Http\Controllers\TimelineController::class, 'create']);
 
 Route::get('/timeline/post/{post_id}', [App\Http\Controllers\TimelineController::class, 'showDetails'])->name('show');
+
+Route::get('/timeline/post/{post_id}/edit', [App\Http\Controllers\TimelineController::class, 'showEditForm'])->name('edit');
+Route::post('/timeline/post/{post_id}/edit', [App\Http\Controllers\TimelineController::class, 'edit']);

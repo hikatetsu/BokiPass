@@ -47,11 +47,45 @@ class TimelineController extends Controller
 
     public function showDetails(int $post_id)
     {
-        //選ばれた合格体験談を取得する
+        //該当する合格体験談を取得する
         $post = Post::find($post_id);
 
         return view('timeline.show',[
             'post' => $post,
         ]);
     }
+
+    public function showEditForm(int $post_id)
+    {
+        //該当する合格体験談を取得する
+        $post = Post::find($post_id);
+
+        return view('timeline.edit',[
+            'post' => $post,
+        ]);
+    }
+
+    public function edit(CreateFolder $request,int $post_id)
+    {
+        //該当する合格体験談を取得する
+        $post = Post::find($post_id);
+
+        //入力値を代入
+        $post->pass_class = $request->pass_class;
+        $post->pass_date = $request->pass_date;
+        $post->test_style = $request->test_style;
+        $post->study_period = $request->study_period;
+        $post->study_method = $request->study_method;
+        $post->books_used = $request->books_used;
+        $post->advice = $request->advice;
+        $post->free_column = $request->free_column;
+
+        //データベースを更新
+        $post->update();
+
+        return redirect()->route('show',[
+            'post_id' => $post->id,
+        ]);
+    }
+
 }

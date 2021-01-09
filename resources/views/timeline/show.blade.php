@@ -1,5 +1,5 @@
 <h1>合格体験談詳細ページ</h1>
-<button>編集</button>
+<a href="{{route('edit', ['post_id' => $post->id])}}">編集</a>
 <button>削除</button>
 
 <h2>{{$post->user_name}}さんの合格体験談</h2>
@@ -18,8 +18,8 @@
 <p>{{$post->advice}}</p>
 <p style="font-weight:  bold;">最後に一言</p>
 <p>{{$post->free_column}}</p>
-<p style="font-weight:  bold;">投稿日時</p>
-<p>{{$post->created_at}}</p>
+<p style="font-weight:  bold;">最終更新</p>
+<p>{{$post->updated_at}}</p>
 
 <p style="font-weight:  bold;">コメント</p>
 <input type="text">
