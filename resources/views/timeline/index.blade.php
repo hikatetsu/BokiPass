@@ -23,6 +23,9 @@
 <p>{{$post->advice}}</p>
 <p>更新日{{$post->updated_at->format('Y.m.d')}}</p>
 <a href="{{route('show', ['post_id' => $post->id])}}">続きを読む</a>
+@if ($post->comments->count())
+  <p>コメント{{$post->comments->count()}}件</p>
+@endif
 </div>
 <br>
 

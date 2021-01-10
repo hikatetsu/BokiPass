@@ -28,6 +28,9 @@
 <p>{{$post->updated_at->format('Y.m.d')}}</p>
 
 <p style="font-weight:  bold;">コメント</p>
+@foreach($comments as $comment)
+<p>{{$comment->body}}</p>
+@endforeach
 <p>ログインするとコメントができます。</p>
 
 @guest

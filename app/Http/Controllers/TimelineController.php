@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreateFolder; 
 
@@ -56,8 +57,14 @@ class TimelineController extends Controller
         //該当する合格体験談を取得
         $post = Post::find($post_id);
 
+        //紐づくコメントを取得
+        $comments = Comment::where('post_id',$post_id)->get();
+
+        // $comments_name = User::where('id',$comments->user_id)->get();
+
         return view('timeline.show',[
             'post' => $post,
+            'comments' => $comments,
         ]);
     }
 
