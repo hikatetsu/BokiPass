@@ -14,6 +14,7 @@ class TimelineController extends Controller
         //postsテーブルから降順で取得
         $posts = Post::latest()->get();
 
+        //ログインユーザー情報を取得
         $user = Auth::user();
 
         return view('timeline.index',[

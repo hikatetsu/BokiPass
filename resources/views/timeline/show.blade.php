@@ -1,6 +1,12 @@
 <h1>合格体験談詳細ページ</h1>
-<a href="{{route('edit', ['post_id' => $post->id])}}">編集</a>
-<button>削除</button>
+
+@guest
+@else
+  @if(auth()->user()->id == $post->user_id)
+    <a href="{{route('edit', ['post_id' => $post->id])}}">編集</a>
+    <button>削除</button>
+  @endif
+@endguest
 
 <h2>{{$post->user_name}}さんの合格体験談</h2>
 <h2>日商簿記検定{{$post->pass_class}}級合格</h2>
@@ -22,8 +28,17 @@
 <p>{{$post->updated_at->format('Y.m.d')}}</p>
 
 <p style="font-weight:  bold;">コメント</p>
-<input type="text">
-<button>コメントする</button>
-<br>
+<p>ログインするとコメントができます。</p>
+
+@guest
+  <div>
+    <a href="{{ route('login') }}">ログイン</a>
+    <a href="{{ route('register') }}">新規登録</a>
+  </div>
+@else
+  <input type="text">
+  <button>コメントする</button>
+  <br>
+@endguest
 
 <a href="{{route('timeline')}}">戻る</a>
