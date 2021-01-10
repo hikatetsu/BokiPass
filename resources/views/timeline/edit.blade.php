@@ -1,3 +1,15 @@
+<!-- flatpickrのCDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<!-- flatpickrの月選択プラグイン -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@latest/dist/plugins/monthSelect/style.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@latest/dist/plugins/monthSelect/index.js"></script>
+<!-- 日本語化のための追加スクリプト -->
+<script src="https://npmcdn.com/flatpickr/dist/l10n/ja.js"></script>
+<!-- ブルーテーマの追加スタイルシート -->
+<link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css">
+
+
 <h1>合格体験談編集ページ</h1>
 
 @if($errors->any())
@@ -59,3 +71,16 @@
 
 <button tipe="submit">送信</button>
 </form>
+
+
+
+<script>
+  flatpickr(document.getElementById('pass_date'), {
+    plugins: [
+            new monthSelectPlugin({
+              dateFormat: "20y年m月",
+              })
+        ],
+    locale: 'ja',
+  });
+</script>

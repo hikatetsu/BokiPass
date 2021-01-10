@@ -19,7 +19,7 @@
 <p style="font-weight:  bold;">最後に一言</p>
 <p>{{$post->free_column}}</p>
 <p style="font-weight:  bold;">最終更新</p>
-<p>{{$post->updated_at}}</p>
+<p>{{$post->updated_at->format('Y.m.d')}}</p>
 
 <p style="font-weight:  bold;">コメント</p>
 <input type="text">
