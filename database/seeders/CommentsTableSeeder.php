@@ -17,7 +17,7 @@ class CommentsTableSeeder extends Seeder
     {
         \App\Models\Post::factory(1)->create()
             ->each(function ($post){
-                $comments = \App\Models\Comment::factory(1)->make();
+                $comments = \App\Models\Comment::factory(2)->make();
                 $post->comments()->saveMany($comments);
             });
     }

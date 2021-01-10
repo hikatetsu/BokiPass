@@ -60,8 +60,6 @@ class TimelineController extends Controller
         //紐づくコメントを取得
         $comments = Comment::where('post_id',$post_id)->get();
 
-        // $comments_name = User::where('id',$comments->user_id)->get();
-
         return view('timeline.show',[
             'post' => $post,
             'comments' => $comments,

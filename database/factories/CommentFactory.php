@@ -23,7 +23,8 @@ class CommentFactory extends Factory
     {
         return [
             'user_id' => 2,
-            'body' => "100年...",
+            'user_name' => '猪助',
+            'body' => '合格おめでとう。',
         ];
     }
 }

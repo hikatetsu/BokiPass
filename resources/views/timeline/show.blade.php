@@ -24,12 +24,22 @@
 <p>{{$post->advice}}</p>
 <p style="font-weight:  bold;">最後に一言</p>
 <p>{{$post->free_column}}</p>
-<p style="font-weight:  bold;">更新日</p>
-<p>{{$post->updated_at->format('Y.m.d')}}</p>
+<p style="font-weight:  bold;">投稿日</p>
+<p>{{$post->created_at->format('Y.m.d')}}</p>
 
 <p style="font-weight:  bold;">コメント</p>
 @foreach($comments as $comment)
-<p>{{$comment->body}}</p>
+<div style="border:1px solid black; display:inline-block; width:300px;">
+  <p>id:{{$comment->user_id}} {{$comment->user_name}}　{{$comment->created_at->format('Y.m.d H:i')}}</p>
+  <p>{{$comment->body}}</p>
+@guest
+@else
+  @if(auth()->user()->id == $comment->user_id)
+    <button>削除</button>
+  @endif
+@endguest
+</div>
+<br>
 @endforeach
 <p>ログインするとコメントができます。</p>
 
