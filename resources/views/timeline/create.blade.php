@@ -69,7 +69,6 @@
   <textarea name="free_column" id="free_column" cols="50" rows="5" placeholder="合格された今の気持ちや、友達作りにSNSの紹介などご自由にどうぞ。">{{old('free_column')}}</textarea>
 </div>
 
-<p>ご協力ありがとうございました。</p>
 <button tipe="submit">送信</button>
 </form>
 

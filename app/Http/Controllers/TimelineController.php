@@ -11,10 +11,15 @@ class TimelineController extends Controller
 {
     public function index()
     {
-        //postsテーブルから全て取得
-        $posts = Post::all();
+        //postsテーブルから降順で取得
+        $posts = Post::latest()->get();
 
-        return view('timeline.index',['posts' => $posts]);
+        $user = Auth::user();
+
+        return view('timeline.index',[
+            'posts' => $posts,
+            'user' => $user,
+            ]);
     }
 
     public function showCreateForm()
@@ -39,7 +44,7 @@ class TimelineController extends Controller
         $post->advice = $request->advice;
         $post->free_column = $request->free_column;
 
-        //データベースに書き込み
+        //データベースに保存
         $post->save();
 
         return redirect()->route('timeline');
@@ -47,7 +52,7 @@ class TimelineController extends Controller
 
     public function showDetails(int $post_id)
     {
-        //該当する合格体験談を取得する
+        //該当する合格体験談を取得
         $post = Post::find($post_id);
 
         return view('timeline.show',[
@@ -57,7 +62,7 @@ class TimelineController extends Controller
 
     public function showEditForm(int $post_id)
     {
-        //該当する合格体験談を取得する
+        //該当する合格体験談を取得
         $post = Post::find($post_id);
 
         return view('timeline.edit',[
@@ -67,7 +72,7 @@ class TimelineController extends Controller
 
     public function edit(CreateFolder $request,int $post_id)
     {
-        //該当する合格体験談を取得する
+        //該当する合格体験談を取得
         $post = Post::find($post_id);
 
         //入力値を代入

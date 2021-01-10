@@ -35,7 +35,7 @@
 
 <div>
   <label for="pass_date">いつ合格しましたか？</label><br>
-  <input type="month" name="pass_date" id="pass_date" value="{{old('pass_date',$post->pass_date)}}">
+  <input type="text" name="pass_date" id="pass_date" value="{{old('pass_date',$post->pass_date)}}">
 </div>
 
 <div>
@@ -69,8 +69,10 @@
   <textarea name="free_column" id="free_column" cols="50" rows="5" placeholder="合格された今の気持ちや、友達作りにSNSの紹介などご自由にどうぞ。">{{old('free_column',$post->free_column)}}</textarea>
 </div>
 
-<button tipe="submit">送信</button>
+<button tipe="submit">更新</button>
 </form>
+
+<a href="{{route('show', ['post_id' => $post->id])}}">戻る</a>
 
 
 
