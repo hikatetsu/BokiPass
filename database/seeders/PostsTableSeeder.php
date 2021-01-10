@@ -24,7 +24,7 @@ class PostsTableSeeder extends Seeder
             'study_period' => '約１年',
             'study_method' => '専門学校に通って学びました。',
             'books_used' => '専門学校の教材です。',
-            'advice' => '基本的に勉強漬けですが、休息も大切です。',
+            'advice' => '合格するまで勉強漬けですが、休息も大切です。',
             'free_column' => '頑張ってください。',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
