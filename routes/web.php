@@ -25,7 +25,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/timeline', [App\Http\Controllers\PostController::class, 'index'])->name('timeline');
+Route::get('/timeline', [App\Http\Controllers\PostController::class, 'timeline'])->name('timeline');
 
 Route::get('/timeline/post/create', [App\Http\Controllers\PostController::class, 'showCreateForm'])->name('create');
 Route::post('/timeline/post/create', [App\Http\Controllers\PostController::class, 'create']);

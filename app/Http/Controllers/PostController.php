@@ -10,7 +10,7 @@ use App\Http\Requests\CreatePost;
 
 class PostController extends Controller
 {
-    public function index()
+    public function timeline()
     {
         //postsテーブルから降順で取得
         $posts = Post::latest()->get();
@@ -18,7 +18,7 @@ class PostController extends Controller
         //ログインユーザー情報を取得
         $user = Auth::user();
 
-        return view('timeline.index',[
+        return view('hello.timeline',[
             'posts' => $posts,
             'user' => $user,
             ]);
@@ -26,7 +26,7 @@ class PostController extends Controller
 
     public function showCreateForm()
     {
-        return view('timeline.create');
+        return view('hello.create');
     }
 
     public function create(CreatePost $request)
@@ -55,12 +55,12 @@ class PostController extends Controller
     public function showDetails(int $post_id)
     {
         //該当する合格体験談を取得
-        $post = Post::find($post_id);
+        $post = Post::findOrFail($post_id);
 
         //紐づくコメントを取得
         $comments = Comment::where('post_id',$post_id)->get();
 
-        return view('timeline.show',[
+        return view('hello.show',[
             'post' => $post,
             'comments' => $comments,
         ]);
@@ -69,9 +69,9 @@ class PostController extends Controller
     public function showEditForm(int $post_id)
     {
         //該当する合格体験談を取得
-        $post = Post::find($post_id);
+        $post = Post::findOrFail($post_id);
 
-        return view('timeline.edit',[
+        return view('hello.edit',[
             'post' => $post,
         ]);
     }
@@ -79,7 +79,7 @@ class PostController extends Controller
     public function edit(CreatePost $request,int $post_id)
     {
         //該当する合格体験談を取得
-        $post = Post::find($post_id);
+        $post = Post::findOrFail($post_id);
 
         //入力値を代入
         $post->pass_class = $request->pass_class;
@@ -92,7 +92,7 @@ class PostController extends Controller
         $post->free_column = $request->free_column;
 
         //データベースを更新
-        $post->update();
+        $post->save();
 
         return redirect()->route('show',[
             'post_id' => $post->id,
