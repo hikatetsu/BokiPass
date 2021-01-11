@@ -36,3 +36,5 @@ Route::get('/timeline/post/{post_id}/edit', [App\Http\Controllers\PostController
 Route::post('/timeline/post/{post_id}/edit', [App\Http\Controllers\PostController::class, 'edit']);
 
 Route::post('/timeline/post/{post_id}', [App\Http\Controllers\CommentController::class, 'create'])->name('commentCreate');
+
+Route::post('/timeline/post/{post_id}/comment/delete', [App\Http\Controllers\CommentController::class, 'delete'])->name('commentDelete');

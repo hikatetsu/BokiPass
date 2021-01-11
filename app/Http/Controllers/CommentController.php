@@ -29,4 +29,14 @@ class CommentController extends Controller
             'post_id' => $post->id,
         ]);
     }
+
+    public function delete(Request $request,int $post_id)
+    {
+        //該当するコメントを取得して削除
+        Comment::findOrFail($request->comment_id)->delete();
+
+        return redirect()->route('show',[
+            'post_id' => $post_id,
+        ]);
+    }
 }
