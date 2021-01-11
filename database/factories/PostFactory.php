@@ -30,8 +30,8 @@ class PostFactory extends Factory
             'study_period' => '約1年',
             'study_method' => '専門学校に通って学びました。',
             'books_used' => '専門学校の教材です。',
-            'advice' => '休息も大切です。',
-            'free_column' => '頑張ってください。',
+            'advice' => '頑張れ!!',
+            'free_column' => '嬉しいです。',
         ];
     }
 }

@@ -15,10 +15,10 @@ class CommentsTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Post::factory()->create()
+        \App\Models\Post::factory()->count(1)->create()
             ->each(function ($post){
-                $comments = \App\Models\Comment::factory()->make();
-                $post->comments()->save($comments);
+                $comments = \App\Models\Comment::factory()->count(1)->make();
+                $post->comments()->saveMany($comments);
             });
     }
 }
