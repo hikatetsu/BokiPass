@@ -34,7 +34,7 @@ class PostController extends Controller
         //Postインスタンス作成
         $post = new Post;
 
-        //入力値を代入
+        //値を代入
         $post->user_id = Auth::user()->id;
         $post->user_name= Auth::user()->name;
         $post->pass_class = $request->pass_class;

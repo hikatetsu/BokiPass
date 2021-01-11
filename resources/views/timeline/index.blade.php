@@ -1,6 +1,6 @@
 <h1>日商簿記検定合格体験談</h1>
 
-
+<!-- ユーザーかゲストかをチェック -->
 @guest
   <div>
     <p>ようこそゲストさん</p>
@@ -15,7 +15,7 @@
   </div>
 @endguest
 
-
+<!-- 全ての合格体験談を表示 -->
 @foreach($posts as $post)
 <div style="border:1px solid black; display:inline-block; width:300px;">
 <p>日商簿記{{$post->pass_class}}級合格</p>
