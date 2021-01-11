@@ -30,7 +30,7 @@ class CommentTest extends TestCase
      */
     public function character_limit()
     {
-        $response = $this->post('/timeline/post/1', [
+        $response = $this->post('/timeline/post/1/comment/create', [
             'user_id' => 1,
             'user_name' => '炭治郎',
             'body' => str_random(192),
@@ -49,7 +49,7 @@ class CommentTest extends TestCase
      */
     public function forgot_to_write()
     {
-        $response = $this->post('/timeline/post/1', [
+        $response = $this->post('/timeline/post/1/comment/create', [
             'user_id' => 1,
             'user_name' => '炭治郎',
             'body' => '',
