@@ -86,5 +86,6 @@
       })
     ],
     locale: 'ja',
+    maxDate: "today"
   });
 </script>

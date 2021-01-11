@@ -15,7 +15,10 @@
 @guest
   @else
     @if(auth()->user()->id == $post->user_id)
-      <a href="{{route('edit', ['post_id' => $post->id])}}">編集</a>
+      <form action="{{route('edit', ['post_id' => $post->id])}}" method="get">
+        @csrf
+        <button tipe="submit">編集</button>
+      </form>
 
       <form action="{{route('delete', ['post_id' => $post->id])}}" method="post">
         @csrf
@@ -27,8 +30,8 @@
 <!-- 合格体験談詳細を表示 -->
 <h2>合格体験談 No{{$post->id}}</h2>
 <h2>日商簿記検定{{$post->pass_class}}級合格</h2>
-<p style="font-weight:  bold;">合格者</p>
-<p>id:{{$post->user_id}} {{$post->user_name}}さん</p>
+<p style="font-weight:  bold;">投稿者</p>
+<p>{{$post->user_name}}さん(id:{{$post->user_id}})</p>
 <p style="font-weight:  bold;">合格年月</p>
 <p>{{$post->pass_date}}</p>
 <p style="font-weight:  bold;">受験方式</p>
@@ -70,7 +73,7 @@
 @foreach($comments as $comment)
   <div style="border:1px solid black; display:inline-block; width:300px;">
       <p>id:{{$comment->user_id}} {{$comment->user_name}}　{{$comment->created_at->format('Y.m.d H:i')}}</p>
-      <p>({{$comment->id}}){{$comment->body}}</p>
+      <p>{{$comment->body}}</p>
     @guest
       @else
         @if(auth()->user()->id == $comment->user_id)

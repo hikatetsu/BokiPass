@@ -19,9 +19,9 @@
 @foreach($posts as $post)
 <div style="border:1px solid black; display:inline-block; width:300px;">
 <p>日商簿記{{$post->pass_class}}級合格</p>
-<p>id:{{$post->user_id}} {{$post->user_name}}さん</p>
+<p>投稿者 {{$post->user_name}}さん</p>
 <p>{{$post->advice}}</p>
-<p>投稿日{{$post->created_at->format('Y.m.d')}}</p>
+<p>投稿日 {{$post->created_at->format('Y.m.d')}}</p>
 <a href="{{route('show', ['post_id' => $post->id])}}">続きを読む</a>
 @if ($post->comments->count())
   <p>コメント{{$post->comments->count()}}件</p>

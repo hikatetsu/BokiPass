@@ -30,7 +30,7 @@ Route::get('/timeline', [App\Http\Controllers\PostController::class, 'timeline']
 Route::get('/timeline/post/create', [App\Http\Controllers\PostController::class, 'showCreateForm'])->name('create');
 Route::post('/timeline/post/create', [App\Http\Controllers\PostController::class, 'create']);
 
-Route::get('/timeline/post/{post_id}', [App\Http\Controllers\PostController::class, 'showDetails'])->name('show');
+Route::get('/timeline/post/{post_id}', [App\Http\Controllers\PostController::class, 'show'])->name('show');
 
 Route::get('/timeline/post/{post_id}/edit', [App\Http\Controllers\PostController::class, 'showEditForm'])->name('edit');
 Route::post('/timeline/post/{post_id}/edit', [App\Http\Controllers\PostController::class, 'edit']);

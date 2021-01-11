@@ -52,7 +52,7 @@ class PostController extends Controller
         return redirect()->route('timeline');
     }
 
-    public function showDetails(int $post_id)
+    public function show(int $post_id)
     {
         //該当する合格体験談を取得
         $post = Post::findOrFail($post_id);
