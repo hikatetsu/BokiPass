@@ -22,9 +22,9 @@ class CommentFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => 2,
-            'user_name' => '猪助',
-            'body' => '合格おめでとう。',
+            'user_id' => 1,
+            'user_name' => '炭治郎',
+            'body' => '誰もコメントくれないなぁ',
         ];
     }
 }

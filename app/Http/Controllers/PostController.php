@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\CreateFolder; 
+use App\Http\Requests\CreatePost; 
 
-class TimelineController extends Controller
+class PostController extends Controller
 {
     public function index()
     {
@@ -29,7 +29,7 @@ class TimelineController extends Controller
         return view('timeline.create');
     }
 
-    public function create(CreateFolder $request)
+    public function create(CreatePost $request)
     {
         //Postインスタンス作成
         $post = new Post;
@@ -76,7 +76,7 @@ class TimelineController extends Controller
         ]);
     }
 
-    public function edit(CreateFolder $request,int $post_id)
+    public function edit(CreatePost $request,int $post_id)
     {
         //該当する合格体験談を取得
         $post = Post::find($post_id);
@@ -98,5 +98,4 @@ class TimelineController extends Controller
             'post_id' => $post->id,
         ]);
     }
-
 }
