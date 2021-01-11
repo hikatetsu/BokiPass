@@ -19,7 +19,7 @@ class CommentController extends Controller
             'body' => $request->body,
         ]);
         
-        //該当する合格体験談を取得・見つからなければ例外を投げる
+        //該当する合格体験談を取得
         $post = Post::findOrFail($post_id);
 
         //取得した合格体験談と紐づくコメントを保存

@@ -35,6 +35,8 @@ Route::get('/timeline/post/{post_id}', [App\Http\Controllers\PostController::cla
 Route::get('/timeline/post/{post_id}/edit', [App\Http\Controllers\PostController::class, 'showEditForm'])->name('edit');
 Route::post('/timeline/post/{post_id}/edit', [App\Http\Controllers\PostController::class, 'edit']);
 
+Route::post('/timeline/post/{post_id}/delete', [App\Http\Controllers\PostController::class, 'delete'])->name('delete');
+
 Route::post('/timeline/post/{post_id}/comment/create', [App\Http\Controllers\CommentController::class, 'create'])->name('commentCreate');
 
 Route::post('/timeline/post/{post_id}/comment/delete', [App\Http\Controllers\CommentController::class, 'delete'])->name('commentDelete');

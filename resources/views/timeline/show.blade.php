@@ -16,7 +16,11 @@
   @else
     @if(auth()->user()->id == $post->user_id)
       <a href="{{route('edit', ['post_id' => $post->id])}}">編集</a>
-      <button>削除</button>
+
+      <form action="{{route('delete', ['post_id' => $post->id])}}" method="post">
+        @csrf
+        <button tipe="submit">削除</button>
+      </form>
     @endif
 @endguest
 
@@ -66,7 +70,7 @@
 @foreach($comments as $comment)
   <div style="border:1px solid black; display:inline-block; width:300px;">
       <p>id:{{$comment->user_id}} {{$comment->user_name}}　{{$comment->created_at->format('Y.m.d H:i')}}</p>
-      <p>{{$comment->body}}</p>
+      <p>({{$comment->id}}){{$comment->body}}</p>
     @guest
       @else
         @if(auth()->user()->id == $comment->user_id)

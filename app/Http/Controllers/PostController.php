@@ -98,4 +98,18 @@ class PostController extends Controller
             'post_id' => $post->id,
         ]);
     }
+
+    public function delete(int $post_id)
+    {
+        //該当する合格体験談を取得
+        $post = Post::findOrFail($post_id);
+
+        //紐づくコメントを削除
+        $post->comments()->delete();
+
+        //合格体験談を削除
+        $post->delete();
+
+        return redirect()->route('timeline');
+    }
 }
