@@ -28,6 +28,7 @@ class CreateComment extends FormRequest
         ];
     }
 
+    // 入力欄の名称を日本語化、エラーメッセージの日本語化は/resources/lang/jp/validation.php。
     public function attributes()
     {
         return [

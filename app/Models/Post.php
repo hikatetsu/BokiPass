@@ -9,6 +9,11 @@ class Post extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
         'user_id',
         'user_name',
@@ -22,6 +27,7 @@ class Post extends Model
         'free_column',
     ];
 
+    // テーブル間のリレーションの設定
     public function comments()
     {
         return $this->hasMany('App\Models\Comment');

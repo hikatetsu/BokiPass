@@ -5,26 +5,12 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-use App\Http\Requests\CreateFolder;
 use Carbon\Carbon;
-// use PostsTableSeeder;
 
 class PostTest extends TestCase
 {
     //テストケースごとにデータベースをリフレッシュしてマイグレーションを再実行する
     use RefreshDatabase;
-
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    // public function test_example()
-    // {
-    //     $response = $this->get('/');
-
-    //     $response->assertStatus(200);
-    // }
 
     /**
      * 合格体験談の文字数がオーバーしている場合はバリデーションエラー

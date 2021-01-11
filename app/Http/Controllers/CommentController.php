@@ -12,7 +12,7 @@ class CommentController extends Controller
 {
     public function create(CreateComment $request,int $post_id)
     {
-        //Commentインスタンス作成し、入力値を代入
+        //Commentインスタンス作成し、値を代入
         $comment = new Comment([
             'user_id' => Auth::user()->id,
             'user_name' => Auth::user()->name,
@@ -22,7 +22,7 @@ class CommentController extends Controller
         //該当する合格体験談を取得・見つからなければ例外を投げる
         $post = Post::findOrFail($post_id);
 
-        //取得した合格体験談にコメントを作成
+        //取得した合格体験談と紐づくコメントを保存
         $post->comments()->save($comment);
 
         return redirect()->route('show',[
