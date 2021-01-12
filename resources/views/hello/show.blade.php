@@ -28,7 +28,7 @@
 @endguest
 
 <!-- 合格体験談詳細を表示 -->
-<h2>合格体験談 No{{$post->id}}</h2>
+<h2>合格体験記 No{{$post->id}}</h2>
 <h2>日商簿記検定{{$post->pass_class}}級合格</h2>
 <p style="font-weight:  bold;">投稿者</p>
 <p>{{$post->user_name}}さん(id:{{$post->user_id}})</p>

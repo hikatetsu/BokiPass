@@ -32,4 +32,27 @@ class Post extends Model
     {
         return $this->hasMany('App\Models\Comment');
     }
+
+    
+    // pass_classの値に応じたclass名(HTML用)を定義　全角数字なので"１"
+    const PASSCLASS = [
+        '１' => [ 'class' => 'gold' ],
+        '２' => [ 'class' => 'silver' ],
+        '３' => [ 'class' => 'peru' ],
+        '初' => [ 'class' => 'skyblue' ],
+    ];
+
+    // pass_classを表すHTMLクラス
+    public function getStylePassClassAttribute()
+    {
+        // pass_classの値
+        $pass_class = $this->attributes['pass_class'];
+
+        // 定義されていなければ空文字を返す
+        if (!isset(self::PASSCLASS[$pass_class])) {
+            return '';
+        }
+
+        return self::PASSCLASS[$pass_class]['class'];
+    }
 }
