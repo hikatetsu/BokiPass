@@ -42,33 +42,39 @@
 
   <div>
     <label for="test_style">どの試験方式でしたか？</label><br>
-    <input type="radio" name="test_style" id="test_style" value="筆記試験（統一試験方式）" {{old('test_style') == "筆記試験（統一試験方式）" ? 'checked' : ''}} checked>筆記試験（統一試験方式）
-    <input type="radio" name="test_style" id="test_style" value="ネット試験（CBT方式）" {{old('test_style') == "ネット試験（CBT方式）" ? 'checked' : ''}} >ネット試験（CBT方式）
+    <input type="radio" name="test_style" id="test_style" value="筆記試験" {{old('test_style') == "筆記試験" ? 'checked' : ''}} checked>筆記試験
+    <input type="radio" name="test_style" id="test_style" value="ネット試験" {{old('test_style') == "ネット試験" ? 'checked' : ''}}>ネット試験
+  </div>
+  
+  <div>
+    <label for="nunber_times">受験回数は何回ですか？</label><br>
+    <select name="nunber_times" id="nunber_times">
+      <option value="１回" selected @if(old('nunber_times')=='１回') selected  @endif>１回</option>
+      <option value="２回" @if(old('nunber_times')=='２回') selected  @endif>２回</option>
+      <option value="３回" @if(old('nunber_times')=='３回') selected  @endif>３回</option>
+      <option value="４回" @if(old('nunber_times')=='４回') selected  @endif>４回</option>
+      <option value="５回以上" @if(old('nunber_times')=='５回以上') selected  @endif>５回以上</option>
+    </select>
   </div>
 
   <div>
     <label for="study_period">勉強期間(時間)はどれくらいでしたか？</label><br>
-    <textarea name="study_period" id="study_period" cols="50" rows="5"placeholder="例：だいたいですが約３ヶ月勉強しました。平日は３時間、休日は６時間ぐらいを目標に勉強していました。しかし、休む時はしっかり休んでいました。">{{old('study_period')}}</textarea>
+    <textarea name="study_period" id="study_period" cols="50" rows="5"placeholder="記載例：何ヶ月間や合計何時間など。平日は何時間で休日は何時間など。">{{old('study_period')}}</textarea>
   </div>
 
   <div>
     <label for="study_method">どのような勉強法でしたか？</label><br>
-    <textarea name="study_method" id="study_method" cols="50" rows="5" placeholder="例：最初は独学でしたが、途中で○○スクールに申し込みました。通信講座ではなく通学しました。いつも優しい対応で○○スクールを選んで正解でした。">{{old('study_method')}}</textarea>
+    <textarea name="study_method" id="study_method" cols="50" rows="5" placeholder="記載例：独学or通信講座or通学？通信講座や通学ならスクール名など。その他具体的な勉強法。">{{old('study_method')}}</textarea>
   </div>
 
   <div>
     <label for="books_used">使用した教材は何ですか？</label><br>
-    <textarea name="books_used" id="books_used" cols="50" rows="5" placeholder="例：基本的に○○スクールの教材を使用していましたが、市販の□□という教材もオススメです。インターネット上の△△も利用していました。">{{old('books_used')}}</textarea>
+    <textarea name="books_used" id="books_used" cols="50" rows="5" placeholder="記載例：教材やWebサービスの名前。それらの特徴など。">{{old('books_used')}}</textarea>
   </div>
 
   <div>
     <label for="advice">合格の秘訣や受験生へアドバイスをお願いします。</label><br>
-    <textarea name="advice" id="advice" cols="50" rows="5" placeholder="例：まず大切なのは毎日１問だけでもいいので勉強を続ける習慣を作ることだと思います。あと、必ず復習して同じ失敗を繰り返さないことです。">{{old('advice')}}</textarea>
-  </div>
-
-  <div>
-    <label for="free_column">最後に一言お願いします。</label><br>
-    <textarea name="free_column" id="free_column" cols="50" rows="5" placeholder="合格された今の気持ちや、友達作りにSNSの紹介などご自由にどうぞ。">{{old('free_column')}}</textarea>
+    <textarea name="advice" id="advice" cols="50" rows="5" placeholder="記載例：おすすめの学習方法や受験上の注意点など。">{{old('advice')}}</textarea>
   </div>
 
   <button tipe="submit">送信</button>

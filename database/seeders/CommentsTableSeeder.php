@@ -15,9 +15,9 @@ class CommentsTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Post::factory()->count(1)->create()
+        \App\Models\Post::factory()->count(5)->create()
             ->each(function ($post){
-                $comments = \App\Models\Comment::factory()->count(1)->make();
+                $comments = \App\Models\Comment::factory()->count(3)->make();
                 $post->comments()->saveMany($comments);
             });
     }

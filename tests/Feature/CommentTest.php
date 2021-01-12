@@ -32,14 +32,14 @@ class CommentTest extends TestCase
     {
         $response = $this->post('/timeline/post/1/comment/create', [
             'user_id' => 1,
-            'user_name' => '炭治郎',
+            'user_name' => 'テストユーザー',
             'body' => str_random(192),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
 
         $response->assertSessionHasErrors([
-            'body' => 'コメント は 191 文字までです。',
+            'body' => 'コメント は191文字までです。',
         ]);
     }
 
@@ -51,7 +51,7 @@ class CommentTest extends TestCase
     {
         $response = $this->post('/timeline/post/1/comment/create', [
             'user_id' => 1,
-            'user_name' => '炭治郎',
+            'user_name' => 'テストユーザー',
             'body' => '',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),

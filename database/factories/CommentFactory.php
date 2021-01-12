@@ -23,7 +23,7 @@ class CommentFactory extends Factory
     {
         return [
             'user_id' => 1,
-            'user_name' => '炭治郎',
+            'user_name' => 'テストユーザー',
             'body' => 'コメントお願いします！',
         ];
     }

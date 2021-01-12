@@ -24,7 +24,7 @@ class Post extends Model
         'study_method',
         'books_used',
         'advice',
-        'free_column',
+        'nunber_times',
     ];
 
     // テーブル間のリレーションの設定
@@ -33,7 +33,7 @@ class Post extends Model
         return $this->hasMany('App\Models\Comment');
     }
 
-    
+
     // pass_classの値に応じたclass名(HTML用)を定義　全角数字なので"１"
     const PASSCLASS = [
         '１' => [ 'class' => 'gold' ],

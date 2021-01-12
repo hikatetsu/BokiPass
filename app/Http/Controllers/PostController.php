@@ -44,7 +44,7 @@ class PostController extends Controller
         $post->study_method = $request->study_method;
         $post->books_used = $request->books_used;
         $post->advice = $request->advice;
-        $post->free_column = $request->free_column;
+        $post->nunber_times = $request->nunber_times;
 
         //データベースに保存
         $post->save();
@@ -89,7 +89,7 @@ class PostController extends Controller
         $post->study_method = $request->study_method;
         $post->books_used = $request->books_used;
         $post->advice = $request->advice;
-        $post->free_column = $request->free_column;
+        $post->nunber_times = $request->nunber_times;
 
         //データベースを更新
         $post->save();

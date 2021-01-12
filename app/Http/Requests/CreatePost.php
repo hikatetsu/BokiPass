@@ -31,7 +31,7 @@ class CreatePost extends FormRequest
             'study_method' => 'required|max:191',
             'books_used' => 'required|max:191',
             'advice' => 'required|max:191',
-            'free_column' => 'required|max:191',
+            'nunber_times' => 'required|max:20',
         ];
     }
 
@@ -39,12 +39,14 @@ class CreatePost extends FormRequest
     public function attributes()
     {
         return [
+            'pass_class' => '「何級に合格しましたか？」',
             'pass_date' => '「いつ合格しましたか？」',
+            'test_style' => '「どの試験方式でしたか？」',
             'study_period' => '「勉強期間(時間)はどれくらいでしたか？」',
             'study_method' => '「どのような勉強法でしたか？」',
             'books_used' => '「使用した教材は何ですか？」',
             'advice' => '「合格の秘訣や受験生へアドバイスをお願いします。」',
-            'free_column' => '「最後に一言お願いします。」',
+            'nunber_times' => '「受験回数は何回ですか？」',
         ];
     }
 }

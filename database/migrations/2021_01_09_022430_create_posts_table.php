@@ -24,7 +24,7 @@ class CreatePostsTable extends Migration
             $table->string('study_method',191);
             $table->string('books_used',191);
             $table->string('advice',191);
-            $table->string('free_column',191);
+            $table->string('nunber_times',20);
             $table->timestamps();
         });
     }

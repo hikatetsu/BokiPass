@@ -36,6 +36,8 @@
 <p>{{$post->pass_date}}</p>
 <p style="font-weight:  bold;">受験方式</p>
 <p>{{$post->test_style}}</p>
+<p style="font-weight:  bold;">受験回数</p>
+<p>{{$post->nunber_times}}</p>
 <p style="font-weight:  bold;">勉強期間（時間）</p>
 <p>{{$post->study_period}}</p>
 <p style="font-weight:  bold;">勉強法</p>
@@ -44,8 +46,6 @@
 <p>{{$post->books_used}}</p>
 <p style="font-weight:  bold;">合格した秘訣や受験生へのアドバイス</p>
 <p>{{$post->advice}}</p>
-<p style="font-weight:  bold;">最後に一言</p>
-<p>{{$post->free_column}}</p>
 <p style="font-weight:  bold;">投稿日</p>
 <p>{{$post->created_at->format('Y.m.d')}}</p>
 <p style="font-weight:  bold;">コメント</p>
