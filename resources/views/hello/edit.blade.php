@@ -59,23 +59,23 @@
 
   <div>
     <label for="study_period">勉強期間(時間)はどれくらいでしたか？</label><br>
-    <textarea name="study_period" id="study_period" cols="50" rows="5"placeholder="記載例：何ヶ月間や合計何時間など。平日は何時間で休日は何時間など。">{{old('study_period',$post->study_period)}}</textarea>
-  </div>
+    <textarea name="study_period" id="study_period" cols="50" rows="5"placeholder="記載例：何ヶ月間や合計何時間など。平日は何時間で休日は何時間など。">{{old('study_period',$post->study_period)}}</textarea><br>191文字まで
+  </div><br>
 
   <div>
     <label for="study_method">どのような勉強法でしたか？</label><br>
-    <textarea name="study_method" id="study_method" cols="50" rows="5" placeholder="記載例：独学or通信講座or通学？通信講座や通学ならスクール名など。その他具体的な勉強法。">{{old('study_method',$post->study_method)}}</textarea>
-  </div>
+    <textarea name="study_method" id="study_method" cols="50" rows="5" placeholder="記載例：独学or通信講座or通学？通信講座や通学ならスクール名など。その他具体的な勉強法。">{{old('study_method',$post->study_method)}}</textarea><br>191文字まで
+  </div><br>
 
   <div>
     <label for="books_used">使用した教材は何ですか？</label><br>
-    <textarea name="books_used" id="books_used" cols="50" rows="5" placeholder="記載例：教材やWebサービスの名前。それらの特徴など。">{{old('books_used',$post->books_used)}}</textarea>
-  </div>
+    <textarea name="books_used" id="books_used" cols="50" rows="5" placeholder="記載例：教材やWebサービスの名前。それらの特徴など。">{{old('books_used',$post->books_used)}}</textarea><br>191文字まで
+  </div><br>
 
   <div>
     <label for="advice">合格の秘訣や受験生へアドバイスをお願いします。</label><br>
-    <textarea name="advice" id="advice" cols="50" rows="5" placeholder="記載例：おすすめの学習方法や受験上の注意点など。">{{old('advice',$post->advice)}}</textarea>
-  </div>
+    <textarea name="advice" id="advice" cols="50" rows="5" placeholder="記載例：おすすめの学習方法や受験上の注意点など。">{{old('advice',$post->advice)}}</textarea><br>191文字まで
+  </div><br>
 
   <button tipe="submit">更新</button>
 </form>

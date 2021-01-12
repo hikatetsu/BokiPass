@@ -22,7 +22,7 @@
 
       <form action="{{route('delete', ['post_id' => $post->id])}}" method="post">
         @csrf
-        <button tipe="submit">削除</button>
+        <button tipe="submit" id="deletebtn" onClick="return check()">削除</button>
       </form>
     @endif
 @endguest
@@ -80,7 +80,7 @@
           <form action="{{route('commentDelete', ['post_id' => $post->id])}}" method="post">
             @csrf
             <input type="hidden" name="comment_id" value="{{$comment->id}}">
-            <button tipe="submit">削除</button>
+            <button tipe="submit" onClick="return check()">削除</button>
           </form>
         @endif
     @endguest
@@ -90,3 +90,17 @@
 
 
 <a href="{{route('timeline')}}">戻る</a>
+
+
+<script>
+  //削除ボタンを押すと再確認する。
+  function check(){
+    if(window.confirm('本当に削除しますか？')){ // 確認ダイアログを表示
+      return true; // 「OK」時は削除を実行
+    }else{
+      window.alert('キャンセルされました'); // 警告ダイアログを表示
+		  return false; // 「キャンセル」時は削除を中止
+    }
+  }
+  
+</script>
