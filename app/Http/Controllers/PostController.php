@@ -13,19 +13,19 @@ class PostController extends Controller
 {
     public function timeline()
     {
-        //postsテーブルから降順で取得
-        $posts = Post::latest()->get();
+        //postsテーブルから降順で取得(ページネーション使用)
+        $posts = Post::orderBy('created_at', 'desc')->simplePaginate(10);
 
         //ログインユーザー情報を取得
         $user = Auth::user();
 
-        //★全ての'いいね'を取得
-        $likes= Like::all(); //←★ここでログインユーザーと紐づく'いいね'だけ取れる？
+        //全てのいいねを取得
+        $likes= Like::all(); 
 
         return view('hello.timeline',[
             'posts' => $posts,
             'user' => $user,
-            'likes' => $likes, //←★いいね機能フロント用
+            'likes' => $likes, 
             ]);
     }
 
