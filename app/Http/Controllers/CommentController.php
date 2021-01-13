@@ -12,7 +12,7 @@ class CommentController extends Controller
 {
     public function create(CreateComment $request,int $post_id)
     {
-        //Commentインスタンス作成し、値を代入
+        //Commentインスタンス作成し、入力値を代入
         $comment = new Comment([
             'user_id' => Auth::user()->id,
             'user_name' => Auth::user()->name,

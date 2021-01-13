@@ -33,6 +33,12 @@ class Post extends Model
         return $this->hasMany('App\Models\Comment');
     }
 
+    // テーブル間のリレーションの設定
+    public function likes()
+    {
+        return $this->hasMany('App\Models\Like');
+    }
+
 
     // pass_classの値に応じたclass名(HTML用)を定義　全角数字なので"１"
     const PASSCLASS = [

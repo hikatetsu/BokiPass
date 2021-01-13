@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Comment;
+use App\Models\Like;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreatePost; 
 
@@ -18,9 +19,13 @@ class PostController extends Controller
         //ログインユーザー情報を取得
         $user = Auth::user();
 
+        //★全ての'いいね'を取得
+        $likes= Like::all(); //←★ここでログインユーザーと紐づく'いいね'だけ取れる？
+
         return view('hello.timeline',[
             'posts' => $posts,
             'user' => $user,
+            'likes' => $likes, //←★いいね機能フロント用
             ]);
     }
 

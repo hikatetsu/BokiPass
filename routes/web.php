@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\LikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +41,7 @@ Route::post('/timeline/post/{post_id}/delete', [App\Http\Controllers\PostControl
 Route::post('/timeline/post/{post_id}/comment/create', [App\Http\Controllers\CommentController::class, 'create'])->name('commentCreate');
 
 Route::post('/timeline/post/{post_id}/comment/delete', [App\Http\Controllers\CommentController::class, 'delete'])->name('commentDelete');
+
+Route::post('/timeline/like/create', [App\Http\Controllers\LikeController::class, 'create'])->name('likeCreate');
+
+Route::post('/timeline/like/delete', [App\Http\Controllers\LikeController::class, 'delete'])->name('likeDelete');
