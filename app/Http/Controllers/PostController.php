@@ -39,7 +39,7 @@ class PostController extends Controller
         //Postインスタンス作成
         $post = new Post;
 
-        //値を代入
+        //入力値を代入
         $post->user_id = Auth::user()->id;
         $post->user_name= Auth::user()->name;
         $post->pass_class = $request->pass_class;
@@ -59,7 +59,7 @@ class PostController extends Controller
 
     public function show(int $post_id)
     {
-        //該当する合格体験談を取得
+        //該当する投稿を取得
         $post = Post::findOrFail($post_id);
 
         //紐づくコメントを取得
@@ -73,7 +73,7 @@ class PostController extends Controller
 
     public function showEditForm(int $post_id)
     {
-        //該当する合格体験談を取得
+        //該当する投稿を取得
         $post = Post::findOrFail($post_id);
 
         return view('hello.edit',[
@@ -83,7 +83,12 @@ class PostController extends Controller
 
     public function edit(CreatePost $request,int $post_id)
     {
-        //該当する合格体験談を取得
+        //もし投稿者と更新者が異なる場合はエラーを返す
+        if (Auth::id() != $request->user_id) {
+            abort(403);
+        }
+
+        //該当する投稿を取得
         $post = Post::findOrFail($post_id);
 
         //入力値を代入
@@ -106,7 +111,7 @@ class PostController extends Controller
 
     public function delete(int $post_id)
     {
-        //該当する合格体験談を取得
+        //該当する投稿を取得
         $post = Post::findOrFail($post_id);
 
         //紐づくコメントを削除
@@ -115,7 +120,7 @@ class PostController extends Controller
         //紐づくコメントを削除
         $post->likes()->delete();
 
-        //合格体験談を削除
+        //投稿を削除
         $post->delete();
 
         return redirect()->route('timeline');

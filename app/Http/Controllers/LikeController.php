@@ -16,10 +16,10 @@ class LikeController extends Controller
             'user_id' => Auth::user()->id,
         ]);
         
-        //該当する合格体験談を取得
+        //該当する投稿を取得
         $post = Post::findOrFail($request->post_id);
 
-        //取得した合格体験談と紐づくいいねを保存
+        //取得した投稿と紐づくイイネを保存
         $post->likes()->save($like);
 
         return redirect()->route('timeline');
@@ -27,7 +27,7 @@ class LikeController extends Controller
 
     public function delete(Request $request)
     {
-        //該当するいいねを取得して削除
+        //該当するイイネを取得して削除
         Like::findOrFail($request->like_id)->delete();
 
         return redirect()->route('timeline');

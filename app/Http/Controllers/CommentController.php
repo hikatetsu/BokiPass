@@ -19,10 +19,10 @@ class CommentController extends Controller
             'body' => $request->body,
         ]);
         
-        //該当する合格体験談を取得
+        //該当する投稿を取得
         $post = Post::findOrFail($post_id);
 
-        //取得した合格体験談と紐づくコメントを保存
+        //取得した投稿と紐づくコメントを保存
         $post->comments()->save($comment);
 
         return redirect()->route('show',[

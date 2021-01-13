@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css">
 
 
-<h1>合格体験談編集ページ</h1>
+<h1>合格体験記編集ページ</h1>
 
 <!-- 入力エラーがある場合は表示 -->
 @if($errors->any())
@@ -23,7 +23,7 @@
   </div>
 @endif
 
-<!-- 合格体験談再入力フォーム -->
+<!-- 合格体験記再入力フォーム -->
 <form action="{{route('edit', ['post_id' => $post->id])}}" method="post">
   @csrf
 
@@ -76,6 +76,9 @@
     <label for="advice">合格の秘訣や受験生へアドバイスをお願いします。</label><br>
     <textarea name="advice" id="advice" cols="50" rows="5" placeholder="記載例：おすすめの学習方法や受験上の注意点など。">{{old('advice',$post->advice)}}</textarea><br>191文字まで
   </div><br>
+
+  <!-- Controllerでチェックするための投稿に紐づくuser_idを送る -->
+  <input type="hidden" name="user_id" value="{{$post->user_id}}">
 
   <button tipe="submit">更新</button>
 </form>
