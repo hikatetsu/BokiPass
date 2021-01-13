@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use PostsTableSeeder;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class CommentTest extends TestCase
 {
@@ -21,7 +22,21 @@ class CommentTest extends TestCase
         parent::setUp();
 
         // テストケース実行前に合格体験談データを作成する
-        $this->seed('PostsTableSeeder');
+        $param = [
+            'user_id' => 1,
+            'user_name' => 'テストユーザー',
+            'pass_class' => str_random(20),
+            'pass_date' => str_random(20),
+            'test_style' => str_random(20),
+            'study_period' => str_random(191),
+            'study_method' => str_random(191),
+            'books_used' => str_random(191),
+            'advice' => str_random(191),
+            'nunber_times' => str_random(20),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ];
+        DB::table('posts')->insert($param);
     }
 
     /**

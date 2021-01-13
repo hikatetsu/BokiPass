@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\DB;
 
 class PostFactory extends Factory
 {
@@ -21,9 +22,11 @@ class PostFactory extends Factory
      */
     public function definition()
     {
+        $user = DB::table('users')->first();
+
         return [
-            'user_id' => 1,
-            'user_name' => 'テストユーザー',
+            'user_id' => $user->id,
+            'user_name' => $user->name, 
             'pass_class' => '３',
             'pass_date' => '2019年11月',
             'test_style' => '筆記試験',

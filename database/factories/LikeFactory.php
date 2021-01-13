@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Like;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\DB;
 
 class LikeFactory extends Factory
 {
@@ -21,8 +22,10 @@ class LikeFactory extends Factory
      */
     public function definition()
     {
+        $user = DB::table('users')->first();
+
         return [
-            'user_id' => 1,
+            'user_id' => $user->id,
         ];
     }
 }

@@ -15,9 +15,11 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
+        $user = DB::table('users')->first();
+
         $param = [
-            'user_id' => 1,
-            'user_name' => 'テストユーザー',
+            'user_id' => $user->id,
+            'user_name' => $user->name, 
             'pass_class' => '１',
             'pass_date' => '2020年11月',
             'test_style' => '筆記試験',
