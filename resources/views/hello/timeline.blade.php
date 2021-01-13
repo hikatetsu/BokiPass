@@ -26,6 +26,9 @@
     @if ($post->comments->count())
       <p>コメント{{$post->comments->count()}}件</p>
     @endif
+    @if ($post->likes->count())
+      <p>いいね{{$post->likes->count()}}件</p>
+    @endif
 
     <!-- ここからいいね機能 -->
     <!-- まずゲストかユーザーかをチェック -->
@@ -46,31 +49,33 @@
         @if($post->id == $like->post_id)
           <!-- 次に、ログインユーザーのidと、$likeが持っている$user_idが一致する$postだけに絞る。 -->
           @if($user->id == $like->user_id)
-            <!-- ここまで通過した$postはログインユーザーがいいね済なので$countに１を代入する -->
+            <!-- ここまで通過した$postにはログインユーザーがいいね済なので$countに１を代入する -->
             @php
               $count = 1;
             @endphp
+
+             <!-- $countが1ならばログインユーザーがいいね済の$postなのでハートを赤色で表示-->
+            @if($count == 1)
+              <form action="{{route('likeDelete')}}" method="post">
+                @csrf
+                <input type="hidden" name="like_id" value="{{$like->id}}">
+                <button tipe="submit" style="color:red;">&hearts;</button>likeID{{$like->id}}
+              </form>
+            @endif
+
           @endif
         @endif
       @endforeach
 
-      <!-- ここで$countの値に応じて表示するハートの色を判定する -->
-      @if($count == 1)
-        <!-- $countが1ならばログインユーザーがいいね済の$postなのでハートを赤色で表示-->
-        <form action="{{route('likeDelete')}}" method="post">
-          @csrf
-          <input type="hidden" name="like_id" value="{{$like->id}}">
-          <button tipe="submit" style="color:red;">&hearts;</button>
-        </form>
-      @else
-        <!-- それ以外の投稿のハートは鼠色で表示 -->
+       <!-- $countが0ならばforeach($likes as $like)を最後まで通過していない$postなのでハートを鼠色で表示 -->
+       @if($count == 0)
         <form action="{{route('likeCreate')}}" method="post">
           @csrf
           <input type="hidden" name="post_id" value="{{$post->id}}">
           <button tipe="submit" style="color:gray;">&hearts;</button>
         </form>
       @endif
-    
+
     @endguest
 
     <!-- ここまでがいいね機能 -->
