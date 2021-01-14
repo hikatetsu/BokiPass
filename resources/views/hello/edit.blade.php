@@ -77,9 +77,6 @@
     <textarea name="advice" id="advice" cols="50" rows="5" placeholder="記載例：おすすめの学習方法や受験上の注意点など。">{{old('advice',$post->advice)}}</textarea><br>191文字まで
   </div><br>
 
-  <!-- Controllerでチェックするための投稿に紐づくuser_idを送る -->
-  <input type="hidden" name="user_id" value="{{$post->user_id}}">
-
   <button tipe="submit">更新</button>
 </form>
 

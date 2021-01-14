@@ -76,6 +76,11 @@ class PostController extends Controller
         //該当する投稿を取得
         $post = Post::findOrFail($post_id);
 
+        //もし投稿者と更新者が異なる場合はエラーを返す
+        if (Auth::id() != $post->user_id) {
+            abort(403);
+        }
+
         return view('hello.edit',[
             'post' => $post,
         ]);
@@ -83,11 +88,6 @@ class PostController extends Controller
 
     public function edit(CreatePost $request,int $post_id)
     {
-        //もし投稿者と更新者が異なる場合はエラーを返す
-        if (Auth::id() != $request->user_id) {
-            abort(403);
-        }
-
         //該当する投稿を取得
         $post = Post::findOrFail($post_id);
 
