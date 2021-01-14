@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css">
 
 
-<h1>合格体験談投稿ページ</h1>
+<h1>合格体験記投稿ページ</h1>
 
 <!-- 入力エラーがある場合は表示 -->
 @if($errors->any())
@@ -23,7 +23,7 @@
   </div>
 @endif
 
-<!-- 合格体験談入力フォーム -->
+<!-- 合格体験記入力フォーム -->
 <form action="{{route('create')}}" method="post">
   @csrf
 
@@ -77,21 +77,34 @@
     <textarea name="advice" id="advice" cols="50" rows="5" placeholder="記載例：おすすめの学習方法や受験上の注意点など。">{{old('advice')}}</textarea><br>191文字まで
   </div><br>
 
-  <button tipe="submit">送信</button>
+  <button type="submit" onClick="return double()">送信</button>
 </form>
 
 <a href="{{route('timeline')}}">キャンセル</a>
 
 
-<!-- 合格年月をどのブラウザでも統一できるようにflatpickrを導入 -->
+
 <script>
+  // 合格年月をどのブラウザでも統一できるようにflatpickrを導入
   flatpickr(document.getElementById('pass_date'), {
     plugins: [
       new monthSelectPlugin({
-        dateFormat: "20y年m月",
+        dateFormat: "20y年m月", //年月で表示
       })
     ],
-    locale: 'ja',
-    maxDate: "today"
+    locale: 'ja', //日本語化
+    maxDate: "today" //今日より先の月は選べない
   });
+
+  //クリック連打防止
+  var set=0; //クリック数を判断するための変数を定義
+  function double() {
+    if(set==0){
+      set=1;  //１クリック目は変数setに１を代入するだけ
+    } else {
+      alert("只今処理中です。\nそのままお待ちください。"); //２クリック目はアラートを表示
+      return false; //２クリック目は中止
+    }
+  }
+
 </script>

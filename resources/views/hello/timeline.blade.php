@@ -15,7 +15,7 @@
   </div>
 @endguest
 
-<!-- 全ての合格体験談を表示 -->
+<!-- 全ての投稿を表示 -->
 @foreach($posts as $post)
   <div style="border:1px solid black; display:inline-block; width:300px;">
     <p>合格体験記 No{{$post->id}}</p>
@@ -60,7 +60,7 @@
               <form action="{{route('likeDelete')}}" method="post">
                 @csrf
                 <input type="hidden" name="like_id" value="{{$like->id}}">
-                <button tipe="submit" style="color:red;">&hearts;</button>likeID{{$like->id}}
+                <button type="submit" style="color:red;" onClick="return double()">&hearts;</button>
               </form>
             @endif
 
@@ -73,7 +73,7 @@
         <form action="{{route('likeCreate')}}" method="post">
           @csrf
           <input type="hidden" name="post_id" value="{{$post->id}}">
-          <button tipe="submit" style="color:gray;">&hearts;</button>
+          <button type="submit" style="color:gray;"  onClick="return double()">&hearts;</button>
         </form>
       @endif
 
@@ -86,5 +86,20 @@
 
 @endforeach
 
-
+<!-- ページネーション -->
 {{ $posts->links() }}
+
+
+<script>
+//クリック連打防止
+var set=0; //クリック数を判断するための変数を定義
+function double() {
+  if(set==0){
+    set=1;  //１クリック目は変数setに１を代入するだけ
+  } else {
+    alert("只今処理中です。\nそのままお待ちください。"); //２クリック目はアラートを表示
+    return false; //２クリック目は中止
+  }
+}
+
+</script>

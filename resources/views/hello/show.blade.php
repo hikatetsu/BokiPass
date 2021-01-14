@@ -1,4 +1,4 @@
-<h1>合格体験談詳細ページ</h1>
+<h1>合格体験記詳細ページ</h1>
 
 <!-- 入力エラーがある場合は表示 -->
 @if($errors->any())
@@ -11,23 +11,23 @@
   </div>
 @endif
 
-<!-- ゲストかユーザーかをチェックし、合格体験談を投稿した本人(ユーザー)のみ編集・削除が可能 -->
+<!-- ゲストかユーザーかをチェックし、合格体験記を投稿した本人(ユーザー)のみ編集・削除が可能 -->
 @guest
   @else
     @if(auth()->user()->id == $post->user_id)
       <form action="{{route('edit', ['post_id' => $post->id])}}" method="get">
         @csrf
-        <button tipe="submit">編集</button>
+        <button type="submit" onClick="return double()">編集</button>
       </form>
 
       <form action="{{route('delete', ['post_id' => $post->id])}}" method="post">
         @csrf
-        <button tipe="submit" id="deletebtn" onClick="return check()">削除</button>
+        <button type="submit" id="deletebtn" onClick="return check()">削除</button>
       </form>
     @endif
 @endguest
 
-<!-- 合格体験談詳細を表示 -->
+<!-- 合格体験記詳細を表示 -->
 <h2>合格体験記 No{{$post->id}}</h2>
 <h2>日商簿記検定{{$post->pass_class}}級合格</h2>
 <p style="font-weight:  bold;">投稿者</p>
@@ -64,7 +64,7 @@
       <div>
         <textarea name="body" cols="40" rows="5" placeholder="ここにコメントを書いてください">{{old('body')}}</textarea>
       </div>
-      <button tipe="submit">コメントする</button>
+      <button type="submit" onClick="return double()">コメントする</button>
     </form>
 @endguest
 
@@ -80,7 +80,7 @@
           <form action="{{route('commentDelete', ['post_id' => $post->id])}}" method="post">
             @csrf
             <input type="hidden" name="comment_id" value="{{$comment->id}}">
-            <button tipe="submit" onClick="return check()">削除</button>
+            <button type="submit" onClick="return check()">削除</button>
           </form>
         @endif
     @endguest
@@ -95,11 +95,22 @@
 <script>
   //削除ボタンを押すと再確認する。
   function check(){
-    if(window.confirm('本当に削除しますか？')){ // 確認ダイアログを表示
+    if(confirm('本当に削除しますか？')){ // 確認ダイアログを表示
       return true; // 「OK」時は削除を実行
     }else{
-      window.alert('キャンセルされました'); // 警告ダイアログを表示
+      alert('キャンセルされました'); // 警告ダイアログを表示
 		  return false; // 「キャンセル」時は削除を中止
+    }
+  }
+
+  //クリック連打防止
+  var set=0; //クリック数を判断するための変数を定義
+  function double() {
+    if(set==0){
+      set=1;  //１クリック目は変数setに１を代入するだけ
+    } else {
+      alert("只今処理中です。\nそのままお待ちください。"); //２クリック目はアラートを表示
+      return false; //２クリック目は中止
     }
   }
   
