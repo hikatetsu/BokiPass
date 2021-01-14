@@ -14,7 +14,7 @@ class PostController extends Controller
     public function timeline()
     {
         //postsテーブルから降順で取得(ページネーション使用)
-        $posts = Post::orderBy('created_at', 'desc')->simplePaginate(10);
+        $posts = Post::orderBy('created_at', 'desc')->paginate(10);
 
         //ログインユーザー情報を取得
         $user = Auth::user();
