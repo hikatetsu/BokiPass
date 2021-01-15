@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
   </head>
   <body class="bg-light">
-    <div class="container text-center m-3">
+    <div class="container text-center my-3">
       <h1 class="h4  font-weight-bold">日商簿記合格体験記</h1>
       <!-- ユーザーかゲストかをチェック -->
       @guest
@@ -20,27 +20,27 @@
       @else
         <div>
           <p>ようこそ{{$user->name}}さん</p>
-          <a href="{{route('create')}}" class="btn btn-primary mb-2">投稿する</a>
+          <a href="{{route('create')}}" class="btn btn-primary mb-2  btn-lg">投稿する</a>
         </div>
       @endguest
     </div>
     <!-- 全ての投稿を表示 -->
     <div class="container">
       @foreach($posts as $post)
-        <div class="card m-2 bg-white rounded-lg shadow-sm">
+        <div class="card m-3 bg-white rounded-lg shadow-sm">
           <div class="card-body">
             <p class="card-title font-weight-bold ">{{$post->user_name}}さんの合格体験記</p>
-            <p class="bg-{{$post->style_pass_class}} text-white d-inline p-1 font-weight-bold h4">日商簿記検定{{$post->pass_class}}級合格</p>
-            <p class="card-text mt-2">{{$post->advice}}</p>
+            <p class="bg-{{$post->style_pass_class}} text-white d-inline p-1 font-weight-bold h3 rounded-lg">日商簿記検定{{$post->pass_class}}級</p>
+            <p class="card-text mt-3">{{$post->advice}}</p>
             <a href="{{route('show', ['post_id' => $post->id])}}">続きを読む</a>
             <p class="mt-2">投稿日 {{$post->created_at->format('Y.m.d')}}</p>
             <!-- コメントの件数を表示する -->
-            <p class="d-inline mr-4">コメント{{$post->comments->count()}}件</p>
+            <p class="d-inline mr-4 badge badge-dark">コメント{{$post->comments->count()}}件</p>
             <!-- ここからいいね機能 -->
             <!-- まずゲストかユーザーかをチェック -->
             @guest
               <!-- ゲストには全ての投稿で無色(黒)のハートを表示-->
-              <button>&hearts;</button>
+              <button class="text-secondary">&hearts;</button>
               <!-- 投稿にいいねがあれば件数を表示する -->
               @if ($post->likes->count())
                 {{$post->likes->count()}}
@@ -66,7 +66,7 @@
                       <form action="{{route('likeDelete')}}" method="post" class="d-inline">
                         @csrf
                         <input type="hidden" name="like_id" value="{{$like->id}}">
-                        <button type="submit" style="color:red;" onClick="return double()">&hearts;</button>
+                        <button type="submit" class="text-danger" onClick="return double()">&hearts;</button>
                       </form>
                       <!-- 投稿にいいねがあれば件数を表示する -->
                       @if ($post->likes->count())

@@ -51,8 +51,7 @@
         <input type="radio" name="nunber_times" id="nunber_times" value="１回" {{old('nunber_times',$post->nunber_times) == "１回" ? 'checked' : ''}} checked>１回
         <input type="radio" name="nunber_times" id="nunber_times" value="２回" class="ml-2" {{old('nunber_times',$post->nunber_times) == "２回" ? 'checked' : ''}}>２回
         <input type="radio" name="nunber_times" id="nunber_times" value="３回" class="ml-2" {{old('nunber_times',$post->nunber_times) == "３回" ? 'checked' : ''}}>３回
-        <input type="radio" name="nunber_times" id="nunber_times" value="４回" class="ml-2" {{old('nunber_times',$post->nunber_times) == "４回" ? 'checked' : ''}}>４回
-        <input type="radio" name="nunber_times" id="nunber_times" value="５回以上" class="ml-2" {{old('nunber_times',$post->nunber_times) == "５回以上" ? 'checked' : ''}}>５回以上
+        <input type="radio" name="nunber_times" id="nunber_times" value="４回以上" class="ml-2" {{old('nunber_times',$post->nunber_times) == "４回以上" ? 'checked' : ''}}>４回以上
       </div>
       <div class="container form-group rounded-lg shadow-sm p-2 bg-white">
         <label for="pass_date" class="w-100 font-weight-bold">いつ合格しましたか？</label><br>
@@ -78,10 +77,10 @@
         <textarea name="advice" id="advice" rows="5" placeholder="記載例：おすすめの学習方法や受験上の注意点など。" class="w-100">{{old('advice',$post->advice)}}</textarea>
         <small class="form-text text-muted">191文字まで</small>
       </div><br>
-      <button type="submit" onClick="return double()" class="btn btn-primary btn-lg btn-block">更新</button>
+      <button type="submit" onClick="return double()" class="btn btn-primary">　更　新　</button>
     </form>
-    <div class="container p-3">
-      <a href="{{route('show', ['post_id' => $post->id])}}" class="btn btn-outline-dark btn-lg btn-block">キャンセル</a>
+    <div class="container pb-3">
+      <a href="{{route('show', ['post_id' => $post->id])}}" class="btn btn-outline-dark">キャンセル</a>
     </div>
     <script>
       'use strict';

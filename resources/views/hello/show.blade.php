@@ -11,17 +11,17 @@
   </head>
   <body class="bg-light">
     <!-- ゲストかユーザーかをチェックし、合格体験記を投稿した本人(ユーザー)のみ編集・削除が可能 -->
-    <div class="container text-right my-2">
+    <div class="container text-right mt-3">
       @guest
         @else
           @if(auth()->user()->id == $post->user_id)
             <form action="{{route('edit', ['post_id' => $post->id])}}" method="get" class="d-inline">
               @csrf
-              <button type="submit" onClick="return double()" class="btn btn-outline-dark">編集</button>
+              <button type="submit" onClick="return double()" class="btn btn-outline-dark btn-sm">編集</button>
             </form>
             <form action="{{route('delete', ['post_id' => $post->id])}}" method="post" class="d-inline">
               @csrf
-              <button type="submit" id="deletebtn" onClick="return check()" class="btn btn-outline-danger">削除</button>
+              <button type="submit" id="deletebtn" onClick="return check()" class="btn btn-outline-danger btn-sm">削除</button>
             </form>
           @endif
       @endguest
@@ -39,47 +39,47 @@
       @endif
     </div>
     <!-- 合格体験記詳細を表示 -->
-    <div class="container mt-3">
-      <h1 class="h4 py-3">合格体験記 No.{{$post->id}}</h1>
-      <h2 class="h3 font-weight-bold bg-{{$post->style_pass_class}} text-white d-inline p-1">日商簿記検定{{$post->pass_class}}級合格</h2>
+    <div class="container">
+      <h1 class="h4">合格体験記 No.{{$post->id}}</h1>
+      <h2 class="h3 font-weight-bold bg-{{$post->style_pass_class}} text-white d-inline p-1  rounded-lg">日商簿記検定{{$post->pass_class}}級</h2>
       <div class="my-2">
       <small class="form-text text-muted d-inline mr-2">投稿日:{{$post->created_at->format('Y.m.d')}}</small>
       <small class="form-text text-muted d-inline">更新日:{{$post->updated_at->format('Y.m.d')}}</small>
       </div>
     </div>
-    <div class="container rounded-lg shadow-sm p-1 mb-3 bg-white">
+    <div class="container rounded-lg shadow-sm p-3 mb-3 bg-white">
       <p class="font-weight-bold">投稿者</p>
-      <p>ID{{$post->user_id}} {{$post->user_name}}さん</p>
+      <p class="mb-0">ID{{$post->user_id}} {{$post->user_name}}さん</p>
     </div>
-    <div class="container rounded-lg shadow-sm p-1 mb-3 bg-white">
+    <div class="container rounded-lg shadow-sm p-3 mb-3 bg-white">
       <p class="font-weight-bold">合格年月</p>
-      <p>{{$post->pass_date}}</p>
+      <p class="mb-0">{{$post->pass_date}}</p>
     </div>
-    <div class="container rounded-lg shadow-sm p-1 mb-3 bg-white">
+    <div class="container rounded-lg shadow-sm p-3 mb-3 bg-white">
       <p class="font-weight-bold">受験方式</p>
-      <p>{{$post->test_style}}</p>
+      <p class="mb-0">{{$post->test_style}}</p>
     </div>
-    <div class="container rounded-lg shadow-sm p-1 mb-3 bg-white">
+    <div class="container rounded-lg shadow-sm p-3 mb-3 bg-white">
       <p class="font-weight-bold">受験回数</p>
-      <p>{{$post->nunber_times}}</p>
+      <p class="mb-0">{{$post->nunber_times}}</p>
     </div>
-    <div class="container rounded-lg shadow-sm p-1 mb-3 bg-white">
+    <div class="container rounded-lg shadow-sm p-3 mb-3 bg-white">
       <p class="font-weight-bold">勉強期間（時間）</p>
-      <p>{{$post->study_period}}</p>
+      <p class="mb-0">{{$post->study_period}}</p>
     </div>
-    <div class="container rounded-lg shadow-sm p-1 mb-3 bg-white">
+    <div class="container rounded-lg shadow-sm p-3 mb-3 bg-white">
       <p class="font-weight-bold">勉強法</p>
-      <p>{{$post->study_method}}</p>
+      <p class="mb-0">{{$post->study_method}}</p>
     </div>
-    <div class="container rounded-lg shadow-sm p-1 mb-3 bg-white">
+    <div class="container rounded-lg shadow-sm p-3 mb-3 bg-white">
       <p class="font-weight-bold">使用した教材</p>
-      <p>{{$post->books_used}}</p>
+      <p class="mb-0">{{$post->books_used}}</p>
     </div>
-    <div class="container rounded-lg shadow-sm p-1 mb-3 bg-white">
+    <div class="container rounded-lg shadow-sm p-3 mb-3 bg-white">
       <p class="font-weight-bold">合格した秘訣や受験生へのアドバイス</p>
-      <p>{{$post->advice}}</p>
+      <p class="mb-0">{{$post->advice}}</p>
     </div>
-    <div class="container rounded-lg shadow-sm p-1 mb-3 bg-white">
+    <div class="container rounded-lg shadow-sm p-3 mb-3 bg-white">
       <!-- ゲストかユーザーかをチェックし、ユーザーならコメントが可能 -->
       @guest
           <div>
@@ -94,9 +94,7 @@
               <textarea name="body" id="comment" rows="5" placeholder="ここにコメントが書けます" class="w-100">{{old('body')}}</textarea>
               <small class="form-text text-muted">191文字まで</small>
             </div>
-            <div class="text-right">
-              <button type="submit" onClick="return double()" class="btn btn-primary mr-2">　送信　</button>
-            </div>
+            <button type="submit" onClick="return double()" class="btn btn-primary m-2">コメントする</button>
           </form>
       @endguest
       <!-- 全てのコメントを表示・ゲストかユーザーかをチェックし、コメントした本人(ユーザー)のみ削除が可能 -->
@@ -112,9 +110,7 @@
                   <form action="{{route('commentDelete', ['post_id' => $post->id])}}" method="post">
                     @csrf
                     <input type="hidden" name="comment_id" value="{{$comment->id}}">
-                    <div class="text-right">
-                      <button type="submit" onClick="return check()" class="btn btn-outline-danger">削除</button>
-                    </div>
+                    <button type="submit" onClick="return check()" class="btn btn-outline-danger btn-sm mt-2">削除</button>
                   </form>
                 @endif
             @endguest
@@ -122,12 +118,12 @@
         </div>
       @endforeach
       <!-- ページネーション -->
-      <div class="d-flex justify-content-center mb-5">
+      <div class="d-flex justify-content-center">
           {{ $comments->links() }}
       </div>
     </div>
-    <div class="container text-right">
-      <a href="{{route('timeline')}}" class="btn btn-outline-dark my-2">　戻る　</a>
+    <div class="container">
+      <a href="{{route('timeline')}}" class="btn btn-outline-dark mb-3">　戻る　</a>
     </div>
     <script>
       'use strict'; 
