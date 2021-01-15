@@ -41,8 +41,8 @@
             <!-- ここからいいね機能 -->
             <!-- まずゲストかユーザーかをチェック -->
             @guest
-              <!-- ゲストには全ての投稿で無色(黒)のハートを表示-->
-              <button class="text-secondary">&hearts;</button>
+              <!-- ゲストには全ての投稿で鼠色のハートを表示-->
+              <button class="text-secondary">&#9829;</button>
               <!-- 投稿にいいねがあれば件数を表示する -->
               @if ($post->likes->count())
                 {{$post->likes->count()}}
@@ -68,7 +68,7 @@
                       <form action="{{route('likeDelete')}}" method="post" class="d-inline">
                         @csrf
                         <input type="hidden" name="like_id" value="{{$like->id}}">
-                        <button type="submit" class="text-danger" onClick="return double()">&hearts;</button>
+                        <button type="submit" class="text-danger" onClick="return double()">&#9829;</button>
                       </form>
                       <!-- 投稿にいいねがあれば件数を表示する -->
                       @if ($post->likes->count())
@@ -83,7 +83,7 @@
                 <form action="{{route('likeCreate')}}" method="post" class="d-inline">
                   @csrf
                   <input type="hidden" name="post_id" value="{{$post->id}}">
-                  <button type="submit" class="text-secondary"  onClick="return double()">&hearts;</button>
+                  <button type="submit" class="text-secondary"  onClick="return double()">&#9829;</button>
                 </form>
                 <!-- 投稿にいいねがあれば件数を表示する -->
                 @if ($post->likes->count())
