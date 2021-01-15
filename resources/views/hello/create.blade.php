@@ -51,22 +51,23 @@
         <label for="study_period" class="w-100 font-weight-bold">勉強期間(時間)はどれくらいでしたか？</label><br>
         <textarea name="study_period" id="study_period" rows="5" placeholder="記載例：何ヶ月間や合計何時間など。平日は何時間で休日は何時間など。" class="w-100">{{old('study_period')}}</textarea>
         <small class="form-text text-muted">191文字まで</small>
-      </div><br>
+      </div>
       <div class="container form-group rounded-lg shadow-sm p-3 bg-white">
         <label for="study_method" class="w-100 font-weight-bold">どのような勉強法でしたか？</label><br>
         <textarea name="study_method" id="study_method" rows="5" placeholder="記載例：独学or通信講座or通学？通信講座や通学ならスクール名など。その他具体的な勉強法。" class="w-100">{{old('study_method')}}</textarea>
         <small class="form-text text-muted">191文字まで</small>
-      </div><br>
+      </div>
       <div class="container form-group rounded-lg shadow-sm p-3 bg-white">
         <label for="books_used" class="w-100 font-weight-bold">使用した教材は何ですか？</label><br>
         <textarea name="books_used" id="books_used" rows="5" placeholder="記載例：教材やWebサービスの名前。それらの特徴など。" class="w-100">{{old('books_used')}}</textarea>
         <small class="form-text text-muted">191文字まで</small>
-      </div><br>
+      </div>
       <div class="container form-group rounded-lg shadow-sm p-3 bg-white">
         <label for="advice" class="w-100 font-weight-bold">合格の秘訣や受験生へアドバイスをお願いします。</label><br>
         <textarea name="advice" id="advice" rows="5" placeholder="記載例：おすすめの学習方法や受験上の注意点など。" class="w-100">{{old('advice')}}</textarea>
         <small class="form-text text-muted">191文字まで</small>
-      </div><br>
+      </div>
+      <small class="form-text text-muted mb-3">※入力欄が足りない場合は投稿後にコメント機能をご利用ください。</small>
       <button type="submit" onClick="return double()" class="btn btn-primary">　送　信　</button>
     </form>
     <div class="container pb-3">

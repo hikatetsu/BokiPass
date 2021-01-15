@@ -32,12 +32,12 @@
         <div class="card m-3 bg-white rounded-lg shadow-sm">
           <div class="card-body">
             <p class="card-title font-weight-bold ">{{$post->user_name}}さんの合格体験記</p>
-            <p class="bg-{{$post->style_pass_class}} text-white d-inline p-1 font-weight-bold h4 rounded-lg">日商簿記検定{{$post->pass_class}}級</p>
+            <p class="bg-{{$post->style_pass_class}} text-white d-inline p-1 font-weight-bold h4">日商簿記検定{{$post->pass_class}}級</p>
             <p class="card-text mt-3">{!! nl2br(e(Str::limit($post->advice, 100))) !!}</p>
             <a href="{{route('show', ['post_id' => $post->id])}}">続きを読む</a>
             <p class="mt-2">投稿日 {{$post->created_at->format('Y.m.d')}}</p>
             <!-- コメントの件数を表示する -->
-            <p class="d-inline mr-4 badge badge-dark">コメント{{$post->comments->count()}}件</p>
+            <p class="d-inline mr-4 badge badge-pill badge-dark">コメント{{$post->comments->count()}}件</p>
             <!-- ここからいいね機能 -->
             <!-- まずゲストかユーザーかをチェック -->
             @guest
@@ -97,7 +97,7 @@
       @endforeach
     </div>
     <!-- ページネーション -->
-    <div class="d-flex justify-content-center mb-5">
+    <div class="d-flex justify-content-center mb-2">
         {{ $posts->links() }}
     </div>
     <script>
