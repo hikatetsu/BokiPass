@@ -39,10 +39,12 @@
       @endif
     </div>
     <!-- 合格体験記詳細を表示 -->
-    <div class="container my-3">
-      <div>
-        <h1 class="h4 py-3">合格体験記 No.{{$post->id}}</h1>
-        <h2 class="h3 font-weight-bold bg-{{$post->style_pass_class}} text-white d-inline p-1">日商簿記検定{{$post->pass_class}}級合格</h2>
+    <div class="container mt-3">
+      <h1 class="h4 py-3">合格体験記 No.{{$post->id}}</h1>
+      <h2 class="h3 font-weight-bold bg-{{$post->style_pass_class}} text-white d-inline p-1">日商簿記検定{{$post->pass_class}}級合格</h2>
+      <div class="my-2">
+      <small class="form-text text-muted d-inline mr-2">投稿日:{{$post->created_at->format('Y.m.d')}}</small>
+      <small class="form-text text-muted d-inline">更新日:{{$post->updated_at->format('Y.m.d')}}</small>
       </div>
     </div>
     <div class="container rounded-lg shadow-sm p-1 mb-3 bg-white">
@@ -78,12 +80,6 @@
       <p>{{$post->advice}}</p>
     </div>
     <div class="container rounded-lg shadow-sm p-1 mb-3 bg-white">
-      <p class="font-weight-bold">投稿日</p>
-      <p>{{$post->created_at->format('Y.m.d')}}</p>
-    </div>
-    <div class="container rounded-lg shadow-sm p-1 mb-3 bg-white">
-      
-      
       <!-- ゲストかユーザーかをチェックし、ユーザーならコメントが可能 -->
       @guest
           <div>
@@ -116,7 +112,9 @@
                   <form action="{{route('commentDelete', ['post_id' => $post->id])}}" method="post">
                     @csrf
                     <input type="hidden" name="comment_id" value="{{$comment->id}}">
-                    <button type="submit" onClick="return check()">削除</button>
+                    <div class="text-right">
+                      <button type="submit" onClick="return check()" class="btn btn-outline-danger">削除</button>
+                    </div>
                   </form>
                 @endif
             @endguest
@@ -124,9 +122,9 @@
         </div>
       @endforeach
       <!-- ページネーション -->
-    <div class="d-flex justify-content-center mb-5">
-        {{ $comments->links() }}
-    </div>
+      <div class="d-flex justify-content-center mb-5">
+          {{ $comments->links() }}
+      </div>
     </div>
     <div class="container text-right">
       <a href="{{route('timeline')}}" class="btn btn-outline-dark my-2">　戻る　</a>
