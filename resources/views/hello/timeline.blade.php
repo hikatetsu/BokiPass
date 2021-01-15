@@ -20,7 +20,7 @@
       @else
         <div>
           <p>ようこそ{{$user->name}}さん</p>
-          <a href="{{route('create')}}" class="btn btn-primary mb-2  btn-lg">投稿する</a>
+          <a href="{{route('create')}}" class="btn btn-primary mb-2">合格体験記を投稿する</a>
         </div>
       @endguest
     </div>
@@ -30,8 +30,8 @@
         <div class="card m-3 bg-white rounded-lg shadow-sm">
           <div class="card-body">
             <p class="card-title font-weight-bold ">{{$post->user_name}}さんの合格体験記</p>
-            <p class="bg-{{$post->style_pass_class}} text-white d-inline p-1 font-weight-bold h3 rounded-lg">日商簿記検定{{$post->pass_class}}級</p>
-            <p class="card-text mt-3">{{$post->advice}}</p>
+            <p class="bg-{{$post->style_pass_class}} text-white d-inline p-1 font-weight-bold h4 rounded-lg">日商簿記検定{{$post->pass_class}}級</p>
+            <p class="card-text mt-3">{!! nl2br(e(Str::limit($post->advice, 100))) !!}</p>
             <a href="{{route('show', ['post_id' => $post->id])}}">続きを読む</a>
             <p class="mt-2">投稿日 {{$post->created_at->format('Y.m.d')}}</p>
             <!-- コメントの件数を表示する -->

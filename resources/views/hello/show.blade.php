@@ -43,8 +43,8 @@
       <h1 class="h4">合格体験記 No.{{$post->id}}</h1>
       <h2 class="h3 font-weight-bold bg-{{$post->style_pass_class}} text-white d-inline p-1  rounded-lg">日商簿記検定{{$post->pass_class}}級</h2>
       <div class="my-2">
-      <small class="form-text text-muted d-inline mr-2">投稿日:{{$post->created_at->format('Y.m.d')}}</small>
-      <small class="form-text text-muted d-inline">更新日:{{$post->updated_at->format('Y.m.d')}}</small>
+      <small class="form-text text-muted d-inline mr-2">投稿日{{$post->created_at->format('Y.m.d')}}</small>
+      <small class="form-text text-muted d-inline">更新日{{$post->updated_at->format('Y.m.d')}}</small>
       </div>
     </div>
     <div class="container rounded-lg shadow-sm p-3 mb-3 bg-white">
@@ -110,7 +110,9 @@
                   <form action="{{route('commentDelete', ['post_id' => $post->id])}}" method="post">
                     @csrf
                     <input type="hidden" name="comment_id" value="{{$comment->id}}">
-                    <button type="submit" onClick="return check()" class="btn btn-outline-danger btn-sm mt-2">削除</button>
+                    <div class="text-right">
+                      <button type="submit" onClick="return check()" class="btn btn-outline-danger btn-sm">削除</button>
+                    </div>
                   </form>
                 @endif
             @endguest

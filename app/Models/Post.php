@@ -42,10 +42,10 @@ class Post extends Model
 
     // pass_classの値に応じたclass名(HTML用)を定義　全角数字なので"１"
     const PASSCLASS = [
-        '１' => [ 'class' => 'warning' ],
+        '１' => [ 'class' => 'info' ],
         '２' => [ 'class' => 'success' ],
-        '３' => [ 'class' => 'primary' ],
-        '初' => [ 'class' => 'info' ],
+        '３' => [ 'class' => 'warning' ],
+        '初' => [ 'class' => 'danger' ],
     ];
 
     // pass_classを表すHTMLクラス
