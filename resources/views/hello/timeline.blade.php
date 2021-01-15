@@ -29,7 +29,7 @@
     @foreach($posts as $post)
       <div style="border:1px solid black; display:inline-block; width:300px;">
         <p>合格体験記 No{{$post->id}}</p>
-        <p style="background-color:{{$post->style_pass_class}};">日商簿記{{$post->pass_class}}級合格</p>
+        <p class="bg-{{$post->style_pass_class}} text-white d-inline p-1 font-weight-bold">日商簿記{{$post->pass_class}}級合格</p>
         <p>投稿者 {{$post->user_name}}さん</p>
         <p>{{$post->advice}}</p>
         <p>投稿日 {{$post->created_at->format('Y.m.d')}}</p>
