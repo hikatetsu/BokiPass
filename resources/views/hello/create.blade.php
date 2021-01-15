@@ -5,16 +5,6 @@
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- flatpickrのCDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <!-- flatpickrの月選択プラグイン -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@latest/dist/plugins/monthSelect/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr@latest/dist/plugins/monthSelect/index.js"></script>
-    <!-- flatpickrの日本語化追加スクリプト -->
-    <script src="https://npmcdn.com/flatpickr/dist/l10n/ja.js"></script>
-    <!-- flatpickrのブルーテーマ追加スタイルシート -->
-    <link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css">
     <title>BokiPass</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -55,7 +45,7 @@
       </div>
       <div class="container form-group rounded-lg shadow-sm p-3 bg-white">
         <label for="pass_date" class="w-100 font-weight-bold">いつ合格しましたか？</label><br>
-        <input type="month" name="pass_date" id="pass_date" value="{{old('pass_date')}}" placeholder="記載例：2021年01月" class="w-100">
+        <input type="month" name="pass_date" id="pass_date" value="{{old('pass_date')}}" placeholder="記載例：2021年01月（年月）">
       </div>
       <div class="container form-group rounded-lg shadow-sm p-3 bg-white">
         <label for="study_period" class="w-100 font-weight-bold">勉強期間(時間)はどれくらいでしたか？</label><br>
@@ -84,16 +74,6 @@
     </div>
     <script>
       'use strict';
-      // 合格年月をどのブラウザでも統一できるようにflatpickrを導入
-      flatpickr(document.getElementById('pass_date'), {
-        plugins: [
-          new monthSelectPlugin({
-            dateFormat: "20y年m月", //年月で表示
-          })
-        ],
-        locale: 'ja', //日本語化
-        maxDate: "today" //今日より先の月は選べない
-      });
       //クリック連打防止
       var set=0; //クリック数を判断するための変数を定義
       function double() {
