@@ -63,7 +63,7 @@ class PostController extends Controller
         $post = Post::findOrFail($post_id);
 
         //紐づくコメントを取得
-        $comments = Comment::where('post_id',$post_id)->get();
+        $comments = Comment::where('post_id',$post_id)->paginate(10);
 
         return view('hello.show',[
             'post' => $post,

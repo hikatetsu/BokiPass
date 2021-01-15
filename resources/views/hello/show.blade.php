@@ -105,24 +105,28 @@
       @endguest
       <!-- 全てのコメントを表示・ゲストかユーザーかをチェックし、コメントした本人(ユーザー)のみ削除が可能 -->
       @foreach($comments as $comment)
-      <div class="card m-2">
-        <div class="card-body">
-            <p class="card-title font-weight-bold">ID{{$comment->user_id}} {{$comment->user_name}}さん</p>
-            <p class="card-text">{{$comment->body}}</p>
-            <small class="form-text text-muted">{{$comment->created_at->format('Y.m.d H:i')}}</small>
-          @guest
-            @else
-              @if(auth()->user()->id == $comment->user_id)
-                <form action="{{route('commentDelete', ['post_id' => $post->id])}}" method="post">
-                  @csrf
-                  <input type="hidden" name="comment_id" value="{{$comment->id}}">
-                  <button type="submit" onClick="return check()">削除</button>
-                </form>
-              @endif
-          @endguest
+        <div class="card m-2">
+          <div class="card-body">
+              <p class="card-title font-weight-bold">ID{{$comment->user_id}} {{$comment->user_name}}さん</p>
+              <p class="card-text">{{$comment->body}}</p>
+              <small class="form-text text-muted">{{$comment->created_at->format('Y.m.d H:i')}}</small>
+            @guest
+              @else
+                @if(auth()->user()->id == $comment->user_id)
+                  <form action="{{route('commentDelete', ['post_id' => $post->id])}}" method="post">
+                    @csrf
+                    <input type="hidden" name="comment_id" value="{{$comment->id}}">
+                    <button type="submit" onClick="return check()">削除</button>
+                  </form>
+                @endif
+            @endguest
+          </div>
         </div>
-      </div>
       @endforeach
+      <!-- ページネーション -->
+    <div class="d-flex justify-content-center mb-5">
+        {{ $comments->links() }}
+    </div>
     </div>
     <div class="container text-right">
       <a href="{{route('timeline')}}" class="btn btn-outline-dark my-2">　戻る　</a>
