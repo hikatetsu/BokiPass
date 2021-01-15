@@ -16,6 +16,8 @@
       @guest
         <div>
           <p>ようこそゲストさん</p>
+          <a href="{{ route('login') }}" class="btn btn-primary mb-2">ログインして投稿する</a>
+          <a href="{{ route('register') }}" class="btn btn-primary mb-2">新規登録して投稿する</a>
         </div>
       @else
         <div>
