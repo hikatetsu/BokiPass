@@ -21,7 +21,7 @@ class PostsTableSeeder extends Seeder
             'user_id' => $user->id,
             'user_name' => $user->name, 
             'pass_class' => '１',
-            'pass_date' => '2020年11月',
+            'pass_date' => '2020-11',
             'test_style' => '筆記試験',
             'study_period' => '１年ちょっとです。平日は約３時間、休日は約７時間ほど勉強していました。',
             'study_method' => '専門学校の社会人コースに通って学びました。専門学校の合格カリキュラムを信じて勉強に集中しました。自習室が使えて、基礎から本試験予想問題までサポートしてくれるので私は満足でした。',
