@@ -83,17 +83,5 @@
 @endsection
 
 @section('scripts')
-  <script>
-    'use strict';
-    //ボタンクリック連打防止
-    var set=0; //クリック数を判断するための変数を定義
-    function double() {
-      if(set==0){
-        set=1;  //１クリック目は変数setに１を代入するだけ
-      } else {
-        alert("只今処理中です。\nそのままお待ちください。"); //２クリック目はアラートを表示
-        return false; //２クリック目は中止
-      }
-    }
-  </script>
+  @include('share.flatpickr.scripts')
 @endsection
