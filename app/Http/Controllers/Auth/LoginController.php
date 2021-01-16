@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'timeline';
+    protected $redirectTo = '/timeline';
 
     /**
      * Create a new controller instance.
