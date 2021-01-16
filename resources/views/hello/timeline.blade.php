@@ -21,9 +21,9 @@
   <div class="container">
     @foreach($posts as $post)
       <div class="card mt-2 mb-3 mx-3 bg-white rounded-lg shadow-sm">
+        <p class="card-header">{{$post->user_name}}さんの合格体験記</p>
         <div class="card-body">
-          <p class="card-title font-weight-bold ">{{$post->user_name}}さんの合格体験記</p>
-          <p class="bg-{{$post->style_pass_class}} text-white d-inline p-1 font-weight-bold h4">日商簿記検定{{$post->pass_class}}級</p>
+          <p class="card-title bg-{{$post->style_pass_class}} text-white d-inline p-1 font-weight-bold h4">日商簿記検定{{$post->pass_class}}級</p>
           <p class="card-text mt-3">{!! nl2br(e(Str::limit($post->advice, 100))) !!}</p>
           <a href="{{route('show', ['post_id' => $post->id])}}">続きを読む</a>
           <p class="mt-2">投稿日 {{$post->created_at->format('Y.m.d')}}</p>
