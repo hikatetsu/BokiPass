@@ -116,7 +116,7 @@
     </div>
   </div>
   <div class="container">
-    <a href="{{route('timeline')}}" class="btn btn-outline-dark mb-3">　戻る　</a>
+    <a href="{{route('timeline')}}" class="btn btn-outline-dark mb-3">戻る</a>
   </div>
 @endsection
 

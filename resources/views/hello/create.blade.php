@@ -58,7 +58,6 @@
       <textarea name="advice" id="advice" rows="5" placeholder="記載例：おすすめの学習方法や受験上の注意点など。" class="w-100">{{old('advice')}}</textarea>
       <small class="form-text text-muted">191文字まで</small>
     </div>
-    <small class="form-text text-muted mb-3">※入力欄が足りない場合は投稿後にコメント機能をご利用ください。</small>
     <button type="submit" onClick="return double()" class="btn btn-primary">　送　信　</button>
   </form>
   <div class="container pb-3">

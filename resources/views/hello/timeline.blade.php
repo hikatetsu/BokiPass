@@ -1,17 +1,17 @@
 @extends('layout')
 
 @section('content')
-  <div class="container text-center my-3">
+  <div class="container text-center mt-3">
     <h1 class="h4  font-weight-bold">日商簿記合格体験記</h1>
     <!-- ユーザーかゲストかをチェック -->
     @guest
       <div>
-        <p>ようこそゲストさん</p>
+        <p class="mb-2">ようこそゲストさん</p>
         <a href="{{ route('login') }}" class="btn btn-primary mb-2">ログインして投稿する</a>
         <a href="{{ route('register') }}" class="btn btn-primary mb-2">新規登録して投稿する</a>
       </div>
     @else
-      <div>
+      <div class="mb-2">
         <p>ようこそ{{$user->name}}さん</p>
         <a href="{{route('create')}}" class="btn btn-primary mb-2">合格体験記を投稿する</a>
       </div>
@@ -20,7 +20,7 @@
   <!-- foreachで全ての投稿を表示 -->
   <div class="container">
     @foreach($posts as $post)
-      <div class="card m-3 bg-white rounded-lg shadow-sm">
+      <div class="card mt-2 mb-3 mx-3 bg-white rounded-lg shadow-sm">
         <div class="card-body">
           <p class="card-title font-weight-bold ">{{$post->user_name}}さんの合格体験記</p>
           <p class="bg-{{$post->style_pass_class}} text-white d-inline p-1 font-weight-bold h4">日商簿記検定{{$post->pass_class}}級</p>
