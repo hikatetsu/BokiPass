@@ -45,4 +45,6 @@ Route::get('/timeline', [App\Http\Controllers\PostController::class, 'timeline']
 
 Route::get('/timeline/post/{post_id}', [App\Http\Controllers\PostController::class, 'show'])->name('show');
 
+Route::get('/timeline/squeeze', [App\Http\Controllers\PostController::class, 'squeeze'])->name('squeeze');
+
 Auth::routes();

@@ -125,4 +125,22 @@ class PostController extends Controller
 
         return redirect()->route('timeline');
     }
+
+    public function squeeze(Request $request)
+    {
+        //postsテーブルから該当するデータを検索して、降順で取得(ページネーション使用)
+        $posts = Post::where('pass_class',$request->pass_class)->orderBy('created_at', 'desc')->paginate(10);
+
+        //ログインユーザー情報を取得
+        $user = Auth::user();
+
+        //全てのいいねを取得
+        $likes= Like::all(); 
+
+        return  view('hello.timeline',[
+            'posts' => $posts,
+            'user' => $user,
+            'likes' => $likes, 
+        ]);
+    }
 }

@@ -19,7 +19,38 @@
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto"></ul>
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  級別検索
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <form action="{{route('squeeze')}}" method="get">
+                    @csrf
+                    <input type="hidden" name="pass_class" value="１">
+                    <button type="submit" class="w-100" onClick="return double()">１級</button>
+                  </form>
+                  <div class="dropdown-divider"></div>
+                  <form action="{{route('squeeze')}}" method="get">
+                    @csrf
+                    <input type="hidden" name="pass_class" value="２">
+                    <button type="submit" class="w-100" onClick="return double()">２級</button>
+                  </form>
+                  <div class="dropdown-divider"></div>
+                  <form action="{{route('squeeze')}}" method="get">
+                    @csrf
+                    <input type="hidden" name="pass_class" value="３">
+                    <button type="submit" class="w-100" onClick="return double()">３級</button>
+                  </form>
+                  <div class="dropdown-divider"></div>
+                  <form action="{{route('squeeze')}}" method="get">
+                    @csrf
+                    <input type="hidden" name="pass_class" value="初">
+                    <button type="submit" class="w-100" onClick="return double()">初級</button>
+                  </form>
+                </div>
+              </li>
+            </ul>
             <div>
               @if(Auth::check())
                 <ul class="navbar-nav ml-auto">
