@@ -114,7 +114,7 @@
   </div>
     <!-- ページネーション -->
     <div class="d-flex justify-content-center">
-        {{ $comments->links() }}
+        {{ $comments->links('vendor/pagination/pagination_view') }}
     </div>
   </div>
   <div class="container">

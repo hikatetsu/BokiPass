@@ -78,7 +78,7 @@
   </div>
   <!-- ページネーション（appends()の'pass_class'は級別検索でのinputタグのname名） -->
   <div class="d-flex justify-content-center mb-2">
-    {{ $posts->appends(Request::only('pass_class'))->links() }}
+    {{ $posts->appends(Request::only('pass_class'))->links('vendor/pagination/pagination_view') }}
   </div>
 @endsection
 
