@@ -28,25 +28,25 @@
                   <form action="{{route('squeeze')}}" method="get">
                     @csrf
                     <input type="hidden" name="pass_class" value="１">
-                    <button type="submit" class="w-100" onClick="return double()">１級</button>
+                    <button type="submit" class="w-100">１級</button>
                   </form>
                   <div class="dropdown-divider"></div>
                   <form action="{{route('squeeze')}}" method="get">
                     @csrf
                     <input type="hidden" name="pass_class" value="２">
-                    <button type="submit" class="w-100" onClick="return double()">２級</button>
+                    <button type="submit" class="w-100">２級</button>
                   </form>
                   <div class="dropdown-divider"></div>
                   <form action="{{route('squeeze')}}" method="get">
                     @csrf
                     <input type="hidden" name="pass_class" value="３">
-                    <button type="submit" class="w-100" onClick="return double()">３級</button>
+                    <button type="submit" class="w-100">３級</button>
                   </form>
                   <div class="dropdown-divider"></div>
                   <form action="{{route('squeeze')}}" method="get">
                     @csrf
                     <input type="hidden" name="pass_class" value="初">
-                    <button type="submit" class="w-100" onClick="return double()">初級</button>
+                    <button type="submit" class="w-100">初級</button>
                   </form>
                 </div>
               </li>
