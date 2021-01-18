@@ -25,6 +25,9 @@ class CommentController extends Controller
         //取得した投稿と紐づくコメントを保存
         $post->comments()->save($comment);
 
+        // 多重コメント防止(JavaScript無効の場合)
+        $request->session()->regenerateToken();
+
         return redirect()->route('show',[
             'post_id' => $post->id,
         ]);

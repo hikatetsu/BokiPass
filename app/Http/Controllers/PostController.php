@@ -54,6 +54,9 @@ class PostController extends Controller
         //データベースに保存
         $post->save();
 
+        // 多重投稿防止(JavaScript無効の場合)
+        $request->session()->regenerateToken();
+
         return redirect()->route('timeline');
     }
 
