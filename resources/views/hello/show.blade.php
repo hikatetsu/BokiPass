@@ -17,8 +17,12 @@
         @endif
     @endguest
   </div>
-  <!-- 入力エラーがある場合は表示 -->
-  <div class="container mt-1">
+  <div class="container mt-2">
+    <!-- メッセージがある場合は表示 -->
+    @if (session('status'))
+      <p class="alert alert-info">{{ session('status') }}</p> 
+    @endif
+    <!-- 入力エラーがある場合は表示 -->
     @if($errors->any())
       <div>
         <ul class="list-unstyled">

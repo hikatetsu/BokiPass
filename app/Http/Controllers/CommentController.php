@@ -30,7 +30,7 @@ class CommentController extends Controller
 
         return redirect()->route('show',[
             'post_id' => $post->id,
-        ]);
+        ])->with('status', __('コメントしました。'));
     }
 
     public function delete(Request $request,int $post_id)
@@ -40,6 +40,6 @@ class CommentController extends Controller
 
         return redirect()->route('show',[
             'post_id' => $post_id,
-        ]);
+        ])->with('status', __('コメントを削除しました。'));
     }
 }

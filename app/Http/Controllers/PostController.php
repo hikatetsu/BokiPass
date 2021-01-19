@@ -57,7 +57,7 @@ class PostController extends Controller
         // 多重投稿防止(JavaScript無効の場合)
         $request->session()->regenerateToken();
 
-        return redirect()->route('timeline');
+        return redirect()->route('timeline')->with('status', __('投稿しました。'));
     }
 
     public function show(int $post_id)
@@ -109,7 +109,7 @@ class PostController extends Controller
 
         return redirect()->route('show',[
             'post_id' => $post->id,
-        ]);
+        ])->with('status', __('更新しました。'));
     }
 
     public function delete(int $post_id)
@@ -126,7 +126,7 @@ class PostController extends Controller
         //投稿を削除
         $post->delete();
 
-        return redirect()->route('timeline');
+        return redirect()->route('timeline')->with('status', __('削除しました。'));
     }
 
     public function squeeze(Request $request)

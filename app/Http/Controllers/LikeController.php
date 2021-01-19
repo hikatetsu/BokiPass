@@ -29,7 +29,7 @@ class LikeController extends Controller
             $post->likes()->save($like);
         }
 
-        return redirect()->route('timeline');
+        return redirect()->route('timeline')->with('status', __('いいねしました。'));
     }
 
     public function delete(Request $request)
@@ -37,6 +37,6 @@ class LikeController extends Controller
         //該当するいいねを取得して削除
         Like::findOrFail($request->like_id)->delete();
 
-        return redirect()->route('timeline');
+        return redirect()->route('timeline')->with('status', __('いいねを取り消しました。'));
     }
 }
