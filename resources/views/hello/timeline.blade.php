@@ -18,7 +18,7 @@
       </div>
     @else
       <div class="mb-2">
-        <p>ようこそ{{$user->name}}さん</p>
+        <p>ようこそ{{auth()->user()->name}}さん</p>
         <a href="{{route('create')}}" class="btn btn-primary mb-2">合格体験記を投稿する</a>
       </div>
     @endguest
@@ -48,7 +48,7 @@
 
             @foreach($likes as $like)
               @if($post->id == $like->post_id)
-                @if($user->id == $like->user_id)
+                @if(auth()->user()->id == $like->user_id)
                   @php
                     $count = 1;
                   @endphp
