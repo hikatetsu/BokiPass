@@ -13,8 +13,8 @@ class PostController extends Controller
 {
     public function timeline()
     {
-        //postsテーブルから降順で取得(ページネーション使用)
-        $posts = Post::orderBy('created_at', 'desc')->paginate(10);
+        //postsテーブルから降順で取得(n+1問題用with() & ページネーション用paginate()を使用)
+        $posts = Post::with(['comments','likes'])->orderBy('created_at', 'desc')->paginate(10);
 
         //全てのいいねを取得
         $likes= Like::all(); 
@@ -127,8 +127,8 @@ class PostController extends Controller
 
     public function squeeze(Request $request)
     {
-        //postsテーブルから該当するデータを検索して、降順で取得(ページネーション使用)
-        $posts = Post::where('pass_class',$request->pass_class)->orderBy('created_at', 'desc')->paginate(10);
+        //postsテーブルから該当するデータを検索して、降順で取得(n+1問題用with() & ページネーション用paginate()を使用)
+        $posts = Post::with(['comments','likes'])->where('pass_class',$request->pass_class)->orderBy('created_at', 'desc')->paginate(10);
 
         //全てのいいねを取得
         $likes= Like::all(); 
