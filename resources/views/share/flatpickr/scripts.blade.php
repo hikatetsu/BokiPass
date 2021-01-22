@@ -9,7 +9,9 @@
   // ajaxいいね機能
   $(function (){
     //「toggle_wish」クラスを持つハート印がクリックされると以下のイベントが起こる
-    $('.toggle_wish').on('click', function (){
+    $('.toggle_wish').on('click', function (e){
+      //フォームが送信された時に、デフォルトだとフォームを送信するための通信がされてしまうので、preventDefault()を使用してデフォルトのイベントを止める。
+      e.preventDefault(); 
       // イベントを起こした要素(aタグ)を代入
       var clickthis = $(this)
       //クリックした投稿のidを取得

@@ -34,10 +34,6 @@ Route::group(['middleware' => 'auth'], function() {
 
   Route::post('/timeline/post/{post_id}/comment/delete', [App\Http\Controllers\CommentController::class, 'delete'])->name('commentDelete');
 
-  Route::post('/timeline/like/create', [App\Http\Controllers\LikeController::class, 'create'])->name('likeCreate');
-
-  Route::post('/timeline/like/delete', [App\Http\Controllers\LikeController::class, 'delete'])->name('likeDelete');
-
   Route::post('/timeline/like/ajax', [App\Http\Controllers\LikeController::class, 'ajaxlike'])->name('ajaxlike');
 
 });
