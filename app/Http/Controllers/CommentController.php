@@ -40,6 +40,6 @@ class CommentController extends Controller
 
         return redirect()->route('show',[
             'post_id' => $post_id,
-        ])->with('status', __('コメントを削除しました。'));
+        ]);
     }
 }
