@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <!-- リセットCSS -->
-    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>BokiPass</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+    <!-- ajax用CSRFトークン -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
   </head>
   <body class="bg-light">
     <header>

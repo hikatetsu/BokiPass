@@ -38,6 +38,8 @@ Route::group(['middleware' => 'auth'], function() {
 
   Route::post('/timeline/like/delete', [App\Http\Controllers\LikeController::class, 'delete'])->name('likeDelete');
 
+  Route::post('/timeline/like/ajax', [App\Http\Controllers\LikeController::class, 'ajaxlike'])->name('ajaxlike');
+
 });
 
 //ゲストでもアクセス可能

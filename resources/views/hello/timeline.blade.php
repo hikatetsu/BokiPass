@@ -34,6 +34,29 @@
           <a href="{{route('show', ['post_id' => $post->id])}}">続きを読む</a>
           <p class="mt-2">投稿日 {{$post->created_at->format('Y.m.d')}}</p>
           <p class="d-inline mr-4 badge badge-pill badge-dark">コメント{{$post->comments->count()}}件</p>
+
+          <!-- ajaxいいね(まずユーザーかゲストかを判定) -->
+          @if(auth()->user())
+            <!-- ユーザーの場合（いいね済なら赤色、いいねしていないなら灰色のハートを表示。いいね件数も表示） -->
+            @if(\App\Models\Like::getLikeExist(Auth::user()->id,$post->id))
+              <p class="">
+                <a class="toggle_wish text-danger" href="" data-post-id="{{ $post->id }}" style="color:gray;" onClick="return double()"><i class="fa fa-heart"></i></a>
+                <span class="likesCount">{{$post->likes->count()}}</span>
+              </p>
+            @else
+              <p class="">
+                <a class="toggle_wish" href="" data-post-id="{{ $post->id }}" style="color:gray;" onClick="return double()"><i class="fa fa-heart"></i></a>
+                <span class="likesCount">{{$post->likes->count()}}</span>
+              </p>
+            @endif
+          @else
+            <!-- ゲストの場合（ただの灰色のハートといいね件数を表示） -->
+            <p class="">
+              <a class="" href="" style="pointer-events: none; color:gray;"><i class="fa fa-heart"></i></a>
+              <span class="">{{$post->likes->count()}}</span>
+            </p>
+          @endif  
+          
           <!-- ここからいいね機能。まずゲストかユーザーかをチェック。ゲストにはpost機能が無い灰色ハートを表示。ユーザーには$count=0を定義しておく。各$postごとにif文で①もし$postのidと$likeが持っている$post_idが一致する$postなら通過、②もしログインユーザーのidと$likeが持っている$user_idが一致する$postなら通過、→①と②を通過した$postにはログインユーザーがいいね済なので$countに１を代入し、もし$countが1の$postは赤色ハートを表示。もし$countが0のままなら灰色ハートを表示。 -->
           @guest
             <button class="text-secondary">&#9829;</button>
