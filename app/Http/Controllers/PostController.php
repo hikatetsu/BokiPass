@@ -112,7 +112,7 @@ class PostController extends Controller
         //紐づくコメントを削除
         $post->comments()->delete();
 
-        //紐づくコメントを削除
+        //紐づくいいねを削除
         $post->likes()->delete();
 
         //投稿を削除

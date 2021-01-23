@@ -57,6 +57,18 @@
             <div>
               @if(Auth::check())
                 <ul class="navbar-nav ml-auto">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      退会はこちら
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <form action="{{route('userDelete')}}" method="post">
+                        @csrf
+                        <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
+                        <button type="submit" class="w-100" onClick="return withdrawal()">退会実行</button>
+                      </form>          
+                    </div>
+                  </li>
                   <li class="nav-item">
                     <a href="#" id="logout" class="nav-link">ログアウト</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">

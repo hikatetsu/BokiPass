@@ -55,7 +55,7 @@
     </div>
     <div class="container form-group rounded-lg shadow-sm p-3 bg-white">
       <label for="advice" class="w-100 font-weight-bold">合格の秘訣や受験生へアドバイスをお願いします。</label><br>
-      <textarea name="advice" id="advice" rows="5" placeholder="記載例：おすすめの学習方法や受験上の注意点など。" class="w-100">{{old('advice',$post->advice)}}</textarea>
+      <textarea name="advice" id="advice" rows="5" placeholder="記載例：おすすめの勉強法や受験上の注意点など。" class="w-100">{{old('advice',$post->advice)}}</textarea>
       <small class="form-text text-muted">191文字まで</small>
     </div>
     <button type="submit" onClick="return double()" class="btn btn-primary">　更　新　</button>
