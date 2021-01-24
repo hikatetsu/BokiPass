@@ -6,11 +6,29 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Carbon\Carbon;
+use App\Models\User;
 
 class PostTest extends TestCase
 {
     //テストケースごとにデータベースをリフレッシュしてマイグレーションを再実行する
     use RefreshDatabase;
+
+        /**
+     * 各テストメソッドの実行前に呼ばれる
+     */
+    public function setUp() :void
+    {
+        parent::setUp();
+
+        // ユーザーログイン(ゲストだと投稿できないため)
+        $user = \App\Models\User::factory()->create();
+
+        $this->post('login', [
+            'email'    => $user->email,
+            'password' => 'test1111'
+        ]);
+            
+    }
 
     /**
      * 合格体験談の文字数がオーバーしている場合はバリデーションエラー

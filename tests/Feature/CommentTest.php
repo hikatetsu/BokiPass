@@ -21,6 +21,14 @@ class CommentTest extends TestCase
     {
         parent::setUp();
 
+        // ユーザーログイン(ゲストだと投稿とコメントもできないため)
+        $user = \App\Models\User::factory()->create();
+
+        $this->post('login', [
+            'email'    => $user->email,
+            'password' => 'test1111'
+        ]);
+
         // テストケース実行前に合格体験談データを作成する
         $param = [
             'user_id' => 1,
