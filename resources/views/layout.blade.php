@@ -65,7 +65,7 @@
                       <form action="{{route('userDelete')}}" method="post">
                         @csrf
                         <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
-                        <button type="submit" class="w-100" onClick="return withdrawal()">退会実行</button>
+                        <button type="submit" class="w-100 text-danger" onClick="return withdrawal()">退会実行</button>
                       </form>          
                     </div>
                   </li>
