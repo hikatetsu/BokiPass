@@ -32,6 +32,7 @@ class CreatePost extends FormRequest
             'books_used' => 'required|max:191',
             'advice' => 'required|max:191',
             'nunber_times' => 'required|max:20',
+            'image' => 'nullable|file|image|mimes:png,jpeg',
         ];
     }
 
@@ -47,6 +48,7 @@ class CreatePost extends FormRequest
             'books_used' => '「使用した教材は何ですか？」',
             'advice' => '「合格の秘訣や受験生へアドバイスをお願いします。」',
             'nunber_times' => '「受験回数は何回ですか？」',
+            'image' => '「画像を添付（任意）」',
         ];
     }
 }

@@ -57,8 +57,12 @@
               <a class="" href="" style="pointer-events: none; color:gray;"><i class="fa fa-heart"></i></a>
               <span class="">{{$post->likes->count()}}</span>
             </p>
-          @endif  
-          
+          @endif 
+
+          <!-- 画像あり投稿ならカメラアイコンを表示 -->
+          @if($post->file_path)
+            <i class="fa fa-camera ml-4" aria-hidden="true"></i>
+          @endif
         </div>
       </div>
     @endforeach

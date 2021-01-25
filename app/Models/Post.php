@@ -25,6 +25,8 @@ class Post extends Model
         'books_used',
         'advice',
         'nunber_times',
+        "file_name",
+        "file_path",
     ];
 
     // テーブル間のリレーションの設定

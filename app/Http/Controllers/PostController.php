@@ -28,23 +28,47 @@ class PostController extends Controller
 
     public function create(CreatePost $request)
     {
-        //Postインスタンス作成
-        $post = new Post;
+        // <input type="file" name="image">の値を受け取る
+        $upload_image = $request->file('image');
 
-        //入力値を代入
-        $post->user_id = Auth::user()->id;
-        $post->user_name= Auth::user()->name;
-        $post->pass_class = $request->pass_class;
-        $post->pass_date = $request->pass_date;
-        $post->test_style = $request->test_style;
-        $post->study_period = $request->study_period;
-        $post->study_method = $request->study_method;
-        $post->books_used = $request->books_used;
-        $post->advice = $request->advice;
-        $post->nunber_times = $request->nunber_times;
-
-        //データベースに保存
-        $post->save();
+        //画像付き投稿か否かで処理を分ける
+        if($upload_image) {
+            //アップロードされた画像を保存する
+            $path = $upload_image->store('uploads',"public");
+            //画像の保存に成功したらDBに記録する
+                if($path){
+                    Post::create([
+                        'user_id' => Auth::user()->id,
+                        'user_name' => Auth::user()->name,
+                        'pass_class' => $request->pass_class,
+                        'pass_date' => $request->pass_date,
+                        'test_style' => $request->test_style,
+                        'study_period' => $request->study_period,
+                        'study_method' => $request->study_method,
+                        'books_used' => $request->books_used,
+                        'advice' => $request->advice,
+                        'nunber_times' => $request->nunber_times,
+                        'file_name' => $upload_image->getClientOriginalName(),
+                        'file_path' => $path,
+                    ]);
+                }
+        }else{
+            //画像添付がなければ画像情報をNULLとする
+            Post::create([
+                'user_id' => Auth::user()->id,
+                'user_name' => Auth::user()->name,
+                'pass_class' => $request->pass_class,
+                'pass_date' => $request->pass_date,
+                'test_style' => $request->test_style,
+                'study_period' => $request->study_period,
+                'study_method' => $request->study_method,
+                'books_used' => $request->books_used,
+                'advice' => $request->advice,
+                'nunber_times' => $request->nunber_times,
+                'file_name' => null,
+                'file_path' => null,
+            ]);
+        }
 
         // 多重投稿防止(JavaScript無効の場合)
         $request->session()->regenerateToken();

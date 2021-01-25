@@ -75,6 +75,12 @@
       <p class="card-header">合格した秘訣や受験生へのアドバイス</p>
       <p class="card-body mb-0">{{$post->advice}}</p>
     </div>
+    @if ($post->file_path)
+      <div class="card rounded-lg shadow-sm mb-3 bg-white">
+        <p class="card-header">参考画像</p>
+        <img src="{{ Storage::url($post->file_path) }}" class="card-body mb-0" style="width:100px; height:100px"/>
+      </div>
+    @endif
     <div class="rounded-lg shadow-sm p-3 mb-3 bg-white">
       <!-- ゲストかユーザーかをチェックし、ユーザーならコメントが可能 -->
       @guest

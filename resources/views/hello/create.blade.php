@@ -13,7 +13,7 @@
     @endif
   </div>
   <!-- 合格体験記入力フォーム -->
-  <form action="{{route('create')}}" method="post" class="container mb-4">
+  <form action="{{route('create')}}" method="post" class="container mb-4" enctype="multipart/form-data">
     @csrf
     <div class="container form-group rounded-lg shadow-sm p-3 bg-white">
       <label for="pass_class" class="font-weight-bold">何級に合格しましたか？</label><br>
@@ -57,6 +57,10 @@
       <label for="advice" class="w-100 font-weight-bold">合格の秘訣や受験生へアドバイスをお願いします。</label><br>
       <textarea name="advice" id="advice" rows="5" placeholder="記載例：おすすめの勉強法や受験上の注意点など。" class="w-100">{{old('advice')}}</textarea>
       <small class="form-text text-muted">191文字まで</small>
+    </div>
+    <div class="container form-group rounded-lg shadow-sm p-3 bg-white">
+      <label for="image" class="w-100 font-weight-bold">画像を添付（任意）</label><br>
+      <input type="file" name="image" accept="image/png, image/jpeg" id="image">
     </div>
     <button type="submit" onClick="return double()" class="btn btn-primary">　送　信　</button>
   </form>
