@@ -8,6 +8,7 @@ use App\Models\Comment;
 use App\Models\Like;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreatePost; 
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -138,6 +139,11 @@ class PostController extends Controller
 
         //紐づくいいねを削除
         $post->likes()->delete();
+
+        //紐づく画像ファイルがあれば削除
+        if($post->file_name){
+            Storage::disk('public')->delete($post->file_path);
+        }
 
         //投稿を削除
         $post->delete();
