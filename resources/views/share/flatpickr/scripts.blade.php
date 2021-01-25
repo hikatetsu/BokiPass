@@ -51,6 +51,37 @@
     });
   });
 
+  // 画像をクリックすると拡大表示
+  var count = 0; //クリックの度に処理を変更するため変数を定義
+  $(function(){
+    // 画像をクリックするとイベント発生
+    $(".expansion").click(function(){
+      if(count == 0){  
+        //.reference-image要素の最後にdiv #photoを追加
+        $(".reference-image").append('<div id="photo">');
+        //一旦非表示にする(後でフェードインするため)
+        $("#photo").hide();
+        //#photoの中にimg要素を追加
+        $("#photo").html("<img>");
+        //img要素にsrc属性を設定
+        $("#photo img").attr("src",$(this).attr("src"));
+        //img要素のwidthとpaddingを設定(Bootstrap)
+        $("#photo img").addClass("w-100 p-1");
+        //#photoをフェードイン
+        $("#photo").fadeIn();
+        //countを1へ
+        count = 1;
+      }else{
+        //画像をフェードアウト、完了したら削除
+        $("#photo").fadeOut(function(){
+          $(this).remove();
+        });
+        //countを0へ戻す
+        count = 0;
+      }
+    });
+  });
+
   //退会ボタンを押すと再確認する。
   function withdrawal(){
     if(confirm('退会すると、現在のユーザーアカウントは削除され、復元することが出来ません。\n退会するだけでは合格体験記・コメント・いいねは削除されません。\n本当に退会してよろしいですか？')){ // 確認ダイアログを表示

@@ -76,9 +76,9 @@
       <p class="card-body mb-0">{{$post->advice}}</p>
     </div>
     @if ($post->file_path)
-      <div class="card rounded-lg shadow-sm mb-3 bg-white">
+      <div class="card rounded-lg shadow-sm mb-3 bg-white reference-image">
         <p class="card-header">参考画像</p>
-        <img src="{{ Storage::url($post->file_path) }}" class="card-body mb-0" style="width:100px; height:100px"/>
+        <img src="{{ Storage::url($post->file_path) }}" class="card-body mb-0 expansion" style="width:100px; height:100px">
       </div>
     @endif
     <div class="rounded-lg shadow-sm p-3 mb-3 bg-white">

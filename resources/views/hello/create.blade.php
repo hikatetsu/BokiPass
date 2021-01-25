@@ -61,6 +61,7 @@
     <div class="container form-group rounded-lg shadow-sm p-3 bg-white">
       <label for="image" class="w-100 font-weight-bold">画像を添付（任意）</label><br>
       <input type="file" name="image" accept="image/png, image/jpeg" id="image">
+      <small class="form-text text-muted">著作権違反にご注意ください。</small>
     </div>
     <button type="submit" onClick="return double()" class="btn btn-primary">　送　信　</button>
   </form>
