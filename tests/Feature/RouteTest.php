@@ -58,7 +58,7 @@ class RouteTest extends TestCase
         Auth::logout();
 
         //ゲストでもアクセスできるページ(200)
-        $this->get('/timeline')->assertStatus(200);
+        $this->get('/')->assertStatus(200);
         $this->get('/timeline/post/1')->assertStatus(200);
         $this->get('/timeline/squeeze')->assertStatus(200);
 
