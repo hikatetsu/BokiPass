@@ -19,8 +19,6 @@ use App\Http\Controllers\LikeController;
 
 //アクセスするためにはログイン認証が必要なグループ
 Route::group(['middleware' => 'auth'], function() {
-
-  // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     
   Route::get('/timeline/post/create', [App\Http\Controllers\PostController::class, 'showCreateForm'])->name('create');
   Route::post('/timeline/post/create', [App\Http\Controllers\PostController::class, 'create']);
