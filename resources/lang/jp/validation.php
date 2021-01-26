@@ -42,7 +42,7 @@ return [
     'email' => ':attribute には有効な形式のメールアドレスを入力してください。',
     'ends_with' => 'The :attribute must end with one of the following: :values.',
     'exists' => 'The selected :attribute is invalid.',
-    'file' => ':attribute はファイル形式でなければなりません。',
+    'file' => ':attribute がファイル形式ではありません。',
     'filled' => 'The :attribute field must have a value.',
     'gt' => [
         'numeric' => 'The :attribute must be greater than :value.',
@@ -56,7 +56,7 @@ return [
         'string' => 'The :attribute must be greater than or equal :value characters.',
         'array' => 'The :attribute must have :value items or more.',
     ],
-    'image' => ':attribute は画像でなければなりません。',
+    'image' => ':attribute が画像ではありません。',
     'in' => 'The selected :attribute is invalid.',
     'in_array' => 'The :attribute field does not exist in :other.',
     'integer' => 'The :attribute must be an integer.',
@@ -82,7 +82,7 @@ return [
         'string' => ':attribute は:max文字までです。',
         'array' => 'The :attribute may not have more than :max items.',
     ],
-    'mimes' => ':attribute は :values画像ファイル形式でなければなりません。',
+    'mimes' => ':attribute の拡張子が（:values）ではありません。',
     'mimetypes' => 'The :attribute must be a file of type: :values.',
     'min' => [
         'numeric' => 'The :attribute must be at least :min.',

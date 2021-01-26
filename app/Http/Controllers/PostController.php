@@ -49,7 +49,7 @@ class PostController extends Controller
                         'books_used' => $request->books_used,
                         'advice' => $request->advice,
                         'nunber_times' => $request->nunber_times,
-                        'file_name' => $upload_image->getClientOriginalName(),
+                        'file_name' => substr($path,8),
                         'file_path' => $path,
                     ]);
                 }
