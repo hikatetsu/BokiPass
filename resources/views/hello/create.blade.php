@@ -37,7 +37,7 @@
     <div class="container form-group rounded-lg shadow-sm p-3 bg-white">
       <label for="pass_date" class="w-100 font-weight-bold">いつ合格しましたか？</label><br>
       <input type="month" name="pass_date" id="pass_date" value="{{old('pass_date')}}" class="w-100" placeholder="記載例：2021年01月（年月）">
-      <small class="form-text text-muted">機種によっては年月日の選択画面が出ますが、日は登録時に切り捨てられ年月までが登録されます</small>
+      <small class="form-text text-muted">機種によっては年月日の選択画面(カレンダー)が表示されますが、日は登録時に削除されますので、何日でも構いません。</small>
     </div>
     <div class="container form-group rounded-lg shadow-sm p-3 bg-white">
       <label for="study_period" class="w-100 font-weight-bold">勉強期間(時間)はどれくらいでしたか？</label><br>
