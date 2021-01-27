@@ -36,7 +36,7 @@
     </div>
     <div class="container form-group rounded-lg shadow-sm p-3 bg-white">
       <label for="pass_date" class="w-100 font-weight-bold">いつ合格しましたか？</label><br>
-      <input type="month" name="pass_date" id="pass_date" value="{{old('pass_date','')}}" class="w-100 p-1" placeholder="記載例：2021-01（半角）" style="border: 1px solid #EEEEEE;">
+      <input type="month" name="pass_date" id="pass_date" value="{{old('pass_date','　')}}" class="w-100 p-1" placeholder="記載例：2021-01（半角）" style="border: 1px solid #EEEEEE;">
     </div>
     <div class="container form-group rounded-lg shadow-sm p-3 bg-white">
       <label for="study_period" class="w-100 font-weight-bold">勉強期間(時間)はどれくらいでしたか？</label><br>
