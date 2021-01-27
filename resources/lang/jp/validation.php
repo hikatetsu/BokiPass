@@ -115,7 +115,7 @@ return [
     'string' => ':attribute には文字を入力してください。',
     'timezone' => 'The :attribute must be a valid zone.',
     'unique' => '入力いただいた:attribute はすでに使用されています。',
-    'uploaded' => 'The :attribute failed to upload.',
+    'uploaded' => ':attributeのアップロードに失敗しました。',
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',
 

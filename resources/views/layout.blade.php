@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>BokiPass</title>
     <link rel="stylesheet" href="/css/styles.css">
+
+    <!-- flatpickrのCDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- flatpickrの月選択プラグイン -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@latest/dist/plugins/monthSelect/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@latest/dist/plugins/monthSelect/index.js"></script>
+    <!-- flatpickrの日本語化追加スクリプト -->
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/ja.js"></script>
+    <!-- flatpickrのブルーテーマ追加スタイルシート -->
+    <link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css">
+
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- FontAwesome -->

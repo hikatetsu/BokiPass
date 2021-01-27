@@ -113,4 +113,15 @@
     }
   }
 
+  // 合格年月をどのブラウザでも統一できるようにflatpickrを導入
+  flatpickr(document.getElementById('pass_date'), {
+  plugins: [
+    new monthSelectPlugin({
+      dateFormat: "20y年m月", //年月で表示
+    })
+  ],
+  locale: 'ja', //日本語化
+  maxDate: "today" //今日より先の月は選べない
+});
+
 </script>
