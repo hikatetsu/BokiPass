@@ -20,29 +20,29 @@ use App\Http\Controllers\LikeController;
 //アクセスするためにはログイン認証が必要なグループ
 Route::group(['middleware' => 'auth'], function() {
     
-  Route::get('/timeline/post/create', [App\Http\Controllers\PostController::class, 'showCreateForm'])->name('create');
-  Route::post('/timeline/post/create', [App\Http\Controllers\PostController::class, 'create']);
+  Route::get('/post/create', [App\Http\Controllers\PostController::class, 'showCreateForm'])->name('create');
+  Route::post('/post/create', [App\Http\Controllers\PostController::class, 'create']);
 
-  Route::get('/timeline/post/{post_id}/edit', [App\Http\Controllers\PostController::class, 'showEditForm'])->name('edit');
-  Route::post('/timeline/post/{post_id}/edit', [App\Http\Controllers\PostController::class, 'edit']);
+  Route::get('/post/{post_id}/edit', [App\Http\Controllers\PostController::class, 'showEditForm'])->name('edit');
+  Route::post('/post/{post_id}/edit', [App\Http\Controllers\PostController::class, 'edit']);
 
-  Route::post('/timeline/post/{post_id}/delete', [App\Http\Controllers\PostController::class, 'delete'])->name('delete');
+  Route::post('/post/{post_id}/delete', [App\Http\Controllers\PostController::class, 'delete'])->name('delete');
 
-  Route::post('/timeline/post/{post_id}/comment/create', [App\Http\Controllers\CommentController::class, 'create'])->name('commentCreate');
+  Route::post('/post/{post_id}/comment/create', [App\Http\Controllers\CommentController::class, 'create'])->name('commentCreate');
 
-  Route::post('/timeline/post/{post_id}/comment/delete', [App\Http\Controllers\CommentController::class, 'delete'])->name('commentDelete');
+  Route::post('/post/{post_id}/comment/delete', [App\Http\Controllers\CommentController::class, 'delete'])->name('commentDelete');
 
-  Route::post('/timeline/like/ajax', [App\Http\Controllers\LikeController::class, 'ajaxlike'])->name('ajaxlike');
+  Route::post('/like/ajax', [App\Http\Controllers\LikeController::class, 'ajaxlike'])->name('ajaxlike');
 
-  Route::post('/timeline/user/delete', [App\Http\Controllers\UserController::class, 'delete'])->name('userDelete');
+  Route::post('/user/delete', [App\Http\Controllers\UserController::class, 'delete'])->name('userDelete');
 
 });
 
 //ゲストでもアクセス可能
 Route::get('/', [App\Http\Controllers\PostController::class, 'timeline'])->name('timeline');
 
-Route::get('/timeline/post/{post_id}', [App\Http\Controllers\PostController::class, 'show'])->name('show');
+Route::get('/post/{post_id}', [App\Http\Controllers\PostController::class, 'show'])->name('show');
 
-Route::get('/timeline/squeeze', [App\Http\Controllers\PostController::class, 'squeeze'])->name('squeeze');
+Route::get('/squeeze', [App\Http\Controllers\PostController::class, 'squeeze'])->name('squeeze');
 
 Auth::routes();

@@ -16,7 +16,7 @@
     <header>
       <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
-          <a class="navbar-brand" href="{{route('timeline')}}" style="text-decoration:none;"> {{ config('app.name') }}</a>
+          <a class="navbar-brand" href="{{route('timeline')}}" style="text-decoration:none;">BokiPass</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>

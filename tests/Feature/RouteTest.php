@@ -59,24 +59,24 @@ class RouteTest extends TestCase
 
         //ゲストでもアクセスできるページ(200)
         $this->get('/')->assertStatus(200);
-        $this->get('/timeline/post/1')->assertStatus(200);
-        $this->get('/timeline/squeeze')->assertStatus(200);
+        $this->get('/post/1')->assertStatus(200);
+        $this->get('/squeeze')->assertStatus(200);
 
         // ゲストだとアクセスできないページ(302)
-        $this->get('/timeline/post/create')->assertStatus(302);
-        $this->post('/timeline/post/create')->assertStatus(302);
+        $this->get('/post/create')->assertStatus(302);
+        $this->post('/post/create')->assertStatus(302);
 
-        $this->get('/timeline/post/1/edit')->assertStatus(302);
-        $this->post('/timeline/post/1/edit')->assertStatus(302);
+        $this->get('/post/1/edit')->assertStatus(302);
+        $this->post('/post/1/edit')->assertStatus(302);
 
-        $this->post('/timeline/post/1/delete')->assertStatus(302);
+        $this->post('/post/1/delete')->assertStatus(302);
 
-        $this->post('/timeline/post/1/comment/create')->assertStatus(302);
+        $this->post('/post/1/comment/create')->assertStatus(302);
 
-        $this->post('/timeline/post/1/comment/delete')->assertStatus(302);
+        $this->post('/post/1/comment/delete')->assertStatus(302);
 
-        $this->post('/timeline/like/ajax')->assertStatus(302);
+        $this->post('/like/ajax')->assertStatus(302);
 
-        $this->post('/timeline/user/delete')->assertStatus(302);
+        $this->post('/user/delete')->assertStatus(302);
     }
 }

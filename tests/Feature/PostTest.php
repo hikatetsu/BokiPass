@@ -36,7 +36,7 @@ class PostTest extends TestCase
      */
     public function character_limit()
     {
-        $response = $this->post('/timeline/post/create', [
+        $response = $this->post('/post/create', [
             'user_id' => 1,
             'user_name' => 'テストユーザー',
             'pass_class' => str_random(21),
@@ -69,7 +69,7 @@ class PostTest extends TestCase
      */
     public function forgot_to_write()
     {
-        $response = $this->post('/timeline/post/create', [
+        $response = $this->post('/post/create', [
             'user_id' => 1,
             'user_name' => 'テストユーザー',
             'pass_class' => '',
