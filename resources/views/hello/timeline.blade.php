@@ -8,7 +8,7 @@
     @endif
   </div>
   <div class="container text-center mt-3">
-    <h1 class="h4  font-weight-bold">日商簿記合格体験記</h1>
+    <h1 class="h4  font-weight-bold">日商簿記検定合格体験記</h1>
     <!-- ユーザーかゲストかをチェック -->
     @guest
       <div>
