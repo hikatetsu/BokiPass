@@ -22,7 +22,7 @@
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') 
         }, //name属性がcsrf-tokenのmetaタグのcontent属性の値を取得
-        url: '/timeline/like/ajax',  //web.phpで指定したコントローラーのメソッドURLを指定
+        url: '/like/ajax',  //web.phpで指定したコントローラーのメソッドURLを指定
         method: 'POST',   //POSTメソッドを選択
         data: { 'post_id': post_id, }, //コントローラーに送るに名称をつけてデータを指定
         timeout: 10000, // タイムアウト時間の指定
@@ -112,15 +112,5 @@
       return false; //２クリック目は中止
     }
   }
-
-  // 合格年月をどのブラウザでも統一できるようにflatpickrを導入
-  flatpickr(document.getElementById('pass_date'), {
-  plugins: [
-    new monthSelectPlugin({
-      dateFormat: "20y年m月", //年月で表示
-    })
-  ],
-  locale: 'ja', //日本語化
-});
 
 </script>
