@@ -36,27 +36,27 @@
     </div>
     <div class="container form-group rounded-lg shadow-sm p-3 bg-white">
       <label for="pass_date" class="w-100 font-weight-bold">いつ合格しましたか？</label><br>
-      <input type="month" name="pass_date" id="pass_date" value="{{old('pass_date')}}" class="w-100" placeholder="記載例：2021年01月（年月）">
+      <input type="month" name="pass_date" id="pass_date" value="{{old('pass_date')}}" class="w-100 p-1" placeholder="記載例：2021年01月（年月）" style="border: 1px solid #EEEEEE;">
       <small class="form-text text-muted">機種によっては年月日の選択画面が表示されることがあります。日は登録時に切り捨てられますので、何日でも構いません。</small>
     </div>
     <div class="container form-group rounded-lg shadow-sm p-3 bg-white">
       <label for="study_period" class="w-100 font-weight-bold">勉強期間(時間)はどれくらいでしたか？</label><br>
-      <textarea name="study_period" id="study_period" rows="5" placeholder="記載例：何ヶ月間や合計何時間など。平日は何時間で休日は何時間など。" style="border: 1px solid #EEEEEE;">{{old('study_period')}}</textarea>
+      <textarea name="study_period" id="study_period" rows="5" placeholder="記載例：何ヶ月間や合計何時間など。平日は何時間で休日は何時間など。" class="w-100 p-1" style="border: 1px solid #EEEEEE;">{{old('study_period')}}</textarea>
       <small class="form-text text-muted">191文字まで</small>
     </div>
     <div class="container form-group rounded-lg shadow-sm p-3 bg-white">
       <label for="study_method" class="w-100 font-weight-bold">どのような勉強法でしたか？</label><br>
-      <textarea name="study_method" id="study_method" rows="5" placeholder="記載例：独学or通信講座or通学？通信講座や通学ならスクール名など。その他具体的な勉強法。" class="w-100">{{old('study_method')}}</textarea>
+      <textarea name="study_method" id="study_method" rows="5" placeholder="記載例：独学or通信講座or通学？通信講座や通学ならスクール名など。その他具体的な勉強法。" class="w-100 p-1" style="border: 1px solid #EEEEEE;">{{old('study_method')}}</textarea>
       <small class="form-text text-muted">191文字まで</small>
     </div>
     <div class="container form-group rounded-lg shadow-sm p-3 bg-white">
       <label for="books_used" class="w-100 font-weight-bold">使用した教材は何ですか？</label><br>
-      <textarea name="books_used" id="books_used" rows="5" placeholder="記載例：教材やWebサービスの名前。それらの特徴など。" class="w-100">{{old('books_used')}}</textarea>
+      <textarea name="books_used" id="books_used" rows="5" placeholder="記載例：教材やWebサービスの名前。それらの特徴など。" class="w-100 p-1" style="border: 1px solid #EEEEEE;">{{old('books_used')}}</textarea>
       <small class="form-text text-muted">191文字まで</small>
     </div>
     <div class="container form-group rounded-lg shadow-sm p-3 bg-white">
       <label for="advice" class="w-100 font-weight-bold">合格の秘訣や受験生へアドバイスをお願いします。</label><br>
-      <textarea name="advice" id="advice" rows="5" placeholder="記載例：おすすめの勉強法や受験上の注意点など。" class="w-100">{{old('advice')}}</textarea>
+      <textarea name="advice" id="advice" rows="5" placeholder="記載例：おすすめの勉強法や受験上の注意点など。" class="w-100 p-1" style="border: 1px solid #EEEEEE;">{{old('advice')}}</textarea>
       <small class="form-text text-muted">191文字まで</small>
     </div>
     <div class="container form-group rounded-lg shadow-sm p-3 bg-white">
