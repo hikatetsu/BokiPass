@@ -121,7 +121,6 @@
     })
   ],
   locale: 'ja', //日本語化
-  maxDate: "today" //今日より先の月は選べない
 });
 
 </script>
