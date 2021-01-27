@@ -93,7 +93,7 @@
             @csrf
             <div>
               <label for="comment" class="w-100">コメント欄</label><br>
-              <textarea name="body" id="comment" rows="5" placeholder="コメントをどうぞ" class="w-100  rounded-lg" style="border: 1px solid #EEEEEE;">{{old('body')}}</textarea>
+              <textarea name="body" id="comment" rows="5" placeholder="コメントをどうぞ" class="p-1 w-100  rounded-lg">{{old('body')}}</textarea>
               <small class="form-text text-muted">191文字まで</small>
             </div>
             <button type="submit" onClick="return double()" class="btn btn-primary my-2">コメントする</button>

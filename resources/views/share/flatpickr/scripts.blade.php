@@ -33,7 +33,7 @@
       .done(function (data) 
       {
         //classにtext-dangerがあれば削除、なければ追加
-        clickthis.toggleClass('text-danger'); 
+        clickthis.toggleClass('like'); 
         //次の弟要素のhtmlを「data」の値に書き換える
         clickthis.next('.likesCount').html(data); 
         // 成功確認用コード

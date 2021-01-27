@@ -41,20 +41,20 @@
             @if(\App\Models\Like::getLikeExist(Auth::user()->id,$post->id))
             <!-- いいね済なら赤色のハートといいね件数を表示 -->
               <p class="d-inline">
-                <a class="toggle_wish text-danger" href="" data-post-id="{{ $post->id }}" style="color:gray;"><i class="fa fa-heart"></i></a>
+                <a class="toggle_wish heart like" href="" data-post-id="{{ $post->id }}"><i class="fa fa-heart"></i></a>
                 <span class="likesCount">{{$post->likes->count()}}</span>
               </p>
             @else
             <!-- いいねしていないなら灰色のハートといいね件数を表示 -->
               <p class="d-inline">
-                <a class="toggle_wish" href="" data-post-id="{{ $post->id }}" style="color:gray;"><i class="fa fa-heart"></i></a>
+                <a class="toggle_wish heart" href="" data-post-id="{{ $post->id }}"><i class="fa fa-heart"></i></a>
                 <span class="likesCount">{{$post->likes->count()}}</span>
               </p>
             @endif
           @else
             <!-- ゲストの場合（ただの灰色のハートといいね件数を表示） -->
             <p class="d-inline">
-              <a class="" href="" style="pointer-events: none; color:gray;"><i class="fa fa-heart"></i></a>
+              <a class="heart" href="" style="pointer-events: none;"><i class="fa fa-heart"></i></a>
               <span class="">{{$post->likes->count()}}</span>
             </p>
           @endif 
