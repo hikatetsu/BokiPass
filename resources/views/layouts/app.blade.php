@@ -71,7 +71,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">その他</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">  
                         <div class="text-center">
-                            <a href="#" id="logout" class="text-dark" style="text-decoration:none;">ログアウト</a>
+                            <a href="#" id="logout" class="text-dark" style="text-decoration:none;" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
                             @csrf
                             </form>
