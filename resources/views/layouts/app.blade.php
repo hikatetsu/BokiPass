@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>BokiPass</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -26,7 +26,7 @@
         <header>
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-            <a class="navbar-brand" href="{{route('timeline')}}" style="text-decoration:none;"> {{ config('app.name') }}</a>
+            <a class="navbar-brand" href="{{route('timeline')}}" style="text-decoration:none;">BokiPass</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -67,11 +67,23 @@
                 <div>
                 @if(Auth::check())
                     <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">その他</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">  
+                        <div class="text-center">
+                            <a href="#" id="logout" class="text-dark" style="text-decoration:none;">ログアウト</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
+                            @csrf
+                            </form>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="text-center">
+                            <a class="text-dark" href="{{route('withdrawal')}}" style="text-decoration:none;">退会する</a>        
+                        </div>
+                        </div>
+                    </li>
                     <li class="nav-item">
-                        <a href="#" id="logout" class="nav-link">ログアウト</a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
-                        @csrf
-                        </form>
+                        <a href="{{ route('myPage') }}" class="nav-link">マイページ</a>
                     </li>
                     </ul>
                 @else

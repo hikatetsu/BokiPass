@@ -34,8 +34,11 @@ Route::group(['middleware' => 'auth'], function() {
 
   Route::post('/like/ajax', [App\Http\Controllers\LikeController::class, 'ajaxlike'])->name('ajaxlike');
 
+  Route::get('/user/withdrawal', [App\Http\Controllers\UserController::class, 'showWithdrawalForm'])->name('withdrawal');
+  
   Route::post('/user/delete', [App\Http\Controllers\UserController::class, 'delete'])->name('userDelete');
-
+  
+  Route::get('/home', [App\Http\Controllers\HomeController::class, 'myPage'])->name('myPage');
 });
 
 //ゲストでもアクセス可能

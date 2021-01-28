@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    public function showWithdrawalForm()
+    {
+        return view('hello.withdrawal');
+    }
+
     public function delete(Request $request)
     {
         // ログアウトする

@@ -78,5 +78,9 @@ class RouteTest extends TestCase
         $this->post('/like/ajax')->assertStatus(302);
 
         $this->post('/user/delete')->assertStatus(302);
+        
+        $this->get('/user/withdrawal')->assertStatus(302);
+
+        $this->get('/home')->assertStatus(302);
     }
 }

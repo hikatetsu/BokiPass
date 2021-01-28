@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class HomeController extends Controller
 {
@@ -21,8 +22,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function myPage()
     {
-        return view('home');
+        //postsテーブルから降順で取得
+        $posts = Post::orderBy('created_at', 'desc')->get();
+
+        return  view('home',[
+            'posts' => $posts,
+        ]);
     }
 }

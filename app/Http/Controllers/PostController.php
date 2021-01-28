@@ -35,7 +35,7 @@ class PostController extends Controller
         //画像付き投稿か否かで処理を分ける
         if($upload_image) {
             //アップロードされた画像を保存する
-            $path = $upload_image->store("public");
+            $path = $upload_image->store('uploads',"public");
             //画像の保存に成功したらDBに記録する
                 if($path){
                     Post::create([
@@ -49,7 +49,7 @@ class PostController extends Controller
                         'books_used' => $request->books_used,
                         'advice' => $request->advice,
                         'nunber_times' => $request->nunber_times,
-                        'file_name' => substr($path,7),
+                        'file_name' => substr($path,8),
                         'file_path' => $path,
                     ]);
                 }
@@ -142,7 +142,7 @@ class PostController extends Controller
 
         //紐づく画像ファイルがあれば削除
         if($post->file_name){
-            Storage::disk('public')->delete($post->file_name);
+            Storage::disk('public')->delete($post->file_path);
         }
 
         //投稿を削除
