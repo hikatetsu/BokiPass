@@ -17,6 +17,16 @@
             </form>
           @endif
       @endguest
+
+
+
+      <form action="{{route('delete', ['post_id' => $post->id])}}" method="post" class="d-inline">
+        @csrf
+        <button type="submit" id="deletebtn" onClick="return check()" class="btn btn-outline-danger btn-sm">削除</button>
+      </form>
+
+
+
     </div>
     <div class=" mt-2">
       <!-- メッセージがある場合は表示 -->
