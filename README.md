@@ -4,7 +4,8 @@ BokiPassは、日商簿記検定の合格体験記を投稿・閲覧できるWeb
  
 # DEMO
  
-https://tetsuawsbucket.s3.ap-northeast-1.amazonaws.com/lDHZHMMRBK3cWSrRxDwtXXQ4YPBRmfJHt28knUCN.png
+ 
+<img src="https://tetsuawsbucket.s3.ap-northeast-1.amazonaws.com/lDHZHMMRBK3cWSrRxDwtXXQ4YPBRmfJHt28knUCN.png">
  
 # Features
  
