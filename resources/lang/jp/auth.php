@@ -14,7 +14,7 @@ return [
     */
 
     'failed' => 'メールアドレスまたはパスワードに誤りがあります。',
-    'password' => 'The provided password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'password' => '入力されたパスワードが正しくありません。',
+    'throttle' => 'ログイン試行回数が多すぎます。:seconds秒後にもう一度お試しください。',
 
 ];
