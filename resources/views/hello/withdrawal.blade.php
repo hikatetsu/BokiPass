@@ -13,6 +13,7 @@
             <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
             <button type="submit" class="btn btn-danger m-2" onClick="return withdrawal()">退会実行</button>
           </form>
+          <a href="{{route('timeline')}}" class="btn btn-outline-dark mb-3">TOPへ戻る</a>
         </div>
       </div>
     </div>
