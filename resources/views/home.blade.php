@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">my合格体験記</div>
 
-                <div class="card-body">
+                <div class="card-body pb-0">
                     <ul>
                         @foreach($posts as $post)
                             @if(Auth::user()->id == $post->user_id)
@@ -29,7 +29,7 @@
             <div class="card">
                 <div class="card-header">いいね一覧</div>
 
-                <div class="card-body">
+                <div class="card-body pb-0">
                     <ul>
                         @foreach($posts as $post)
                             @if(\App\Models\Like::getLikeExist(Auth::user()->id,$post->id))
