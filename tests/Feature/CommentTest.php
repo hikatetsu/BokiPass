@@ -62,7 +62,7 @@ class CommentTest extends TestCase
         ]);
 
         $response->assertSessionHasErrors([
-            'body' => 'コメント は191文字までです。',
+            'body' => 'コメントは191文字までです。',
         ]);
     }
 
@@ -81,7 +81,7 @@ class CommentTest extends TestCase
         ]);
 
         $response->assertSessionHasErrors([
-            'body' => 'コメント は必須入力です。',
+            'body' => 'コメントは必須入力です。',
         ]);
     }
 }
