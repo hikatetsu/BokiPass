@@ -148,7 +148,7 @@ class PostController extends Controller
         //投稿を削除
         $post->delete();
 
-        return redirect()->route('timeline');
+        return redirect()->route('timeline')->with('status', __('削除しました。'));
     }
 
     public function squeeze(Request $request)

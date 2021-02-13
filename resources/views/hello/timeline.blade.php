@@ -13,13 +13,13 @@
       <!-- ユーザーかゲストかをチェック -->
       @guest
         <div>
-          <p class="mb-2">ようこそゲストさん</p>
+          <p class="mb-2">ようこそ、ゲストさん</p>
           <a href="{{ route('login') }}" class="btn btn-primary mb-2">ログインして投稿する</a>
           <a href="{{ route('register') }}" class="btn btn-primary mb-2">新規登録して投稿する</a>
         </div>
       @else
         <div class="mb-2">
-          <p>ようこそ{{auth()->user()->name}}さん</p>
+          <p>ようこそ、{{auth()->user()->name}}さん</p>
           <a href="{{route('create')}}" class="btn btn-primary mb-2">合格体験記を投稿する</a>
         </div>
       @endguest
